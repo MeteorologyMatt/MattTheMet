@@ -926,9 +926,8 @@ function HomePage() {
             </h1>
 
             <p className="mt-5 text-lg leading-relaxed text-slate-700 dark:text-slate-200">
-              I’m a senior meteorology student at Mississippi State University, focusing on wildfire climatology,
-              climate modeling, synoptic meteorology, and weather communication. I love using research to help people prepare for
-              severe weather and long-term climate risks.
+              I’m a first-year master's student studying meteorology at Mississippi State University, focusing on synoptic meteorology, weather communication, and AI/ML modeling techniques. I love using research to help people prepare for
+              severe weather and the ever-evolving state of the atmosphere.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-4">
@@ -1026,7 +1025,7 @@ function HomePage() {
               <InfoCard title="Skills">
               <div className="mb-4">  •   Python</div>
               <div className="mb-4">  •   ArcGIS Pro</div>
-              <div className="mb-4">  •   SAS (statistical analysis software)</div>
+              <div className="mb-4">  •   SPSS (statistical analysis software)</div>
               <div className="mb-4">  •   Data analysis</div>
               <div className="mb-4">  •   Predictive modeling</div>
               <div className="mb-4">  •   Research communication</div>
@@ -1040,15 +1039,15 @@ function HomePage() {
 
             <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
               <Callout title={<span className="block w-full text-center">Core Competencies</span>} tone="slate">
-                I specialize in the building of multi-modal meteorological datasets, translating complex synoptic-scale dynamics—specifically jet stream superposition and vertical motion signatures—into high-fidelity, actionable insights. By leveraging advanced visualization and GIS techniques, I bridge the technical gap between atmospheric physics and the diverse informational needs of public and institutional stakeholders to ensure data remains accessible and impactful.
+               I work with large meteorological datasets using R and Python and study large-scale atmospheric dynamics, especially jet stream interactions and their impacts on winter weather. I also create visualizations and GIS products that help communicate complex weather information to diverse audiences.
               </Callout>
 
               <Callout title={<span className="block w-full text-center">Research Focus</span>} tone="slate">
-                My research portfolio centers on the intersection of synoptic-scale dynamics and societal resilience, investigating how extreme weather triggers influence public risk perception. I am dedicated to integrating the principles of weather, climate, and society into the study of high-impact events, with a specific focus on optimizing protective action and communication strategies for diverse and marginalized communities.
+                My research portfolio centers on the intersection of synoptic-scale dynamics and societal impacts, investigating how extreme weather triggers influence public risk perception. I am dedicated to integrating the principles of weather, climate, and society into the study of high-impact events, with a specific focus on optimizing protective action and communication strategies for all people and communities.
               </Callout>
 
               <Callout title={<span className="block w-full text-center">Professional Interests</span>} tone="slate">
-                I am pursuing graduate-level research and professional collaborations centered on the integration of synoptic meteorology, climate risk, and sociology. My objective is to develop equitable decision-support frameworks and science communication tools that translate rigorous meteorological modeling into improved public safety outcomes, ensuring advanced dynamical forecasts serve all effectively.
+                I am pursuing graduate-level research and professional collaborations focused on integrating synoptic meteorology, climate risk, and sociology. My objective is to develop equitable decision-support frameworks and science communication tools that translate rigorous meteorological modeling into improved public safety outcomes, ensuring advanced dynamical forecasts serve all effectively.
               </Callout>
             </div>
 
