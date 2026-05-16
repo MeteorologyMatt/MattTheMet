@@ -14,6 +14,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Routes, Route, NavLink, Link, useLocation } from "react-router-dom";
+import { HurricaneSandyPage } from "./pages/HurricaneSandyPage";
 
 /* -------------------------------------------------------------------------- */
 /* Utilities                                                                   */
@@ -921,12 +922,12 @@ function HomePage() {
 
             <h1 className="mt-5 text-4xl sm:text-5xl font-extrabold leading-tight">
               <span className="bg-gradient-to-r from-sky-600 via-cyan-500 to-emerald-600 bg-clip-text text-transparent">
-                Hello, I’m {profile.name}.
+                Hello, I'm {profile.name}.
               </span>
             </h1>
 
             <p className="mt-5 text-lg leading-relaxed text-slate-700 dark:text-slate-200">
-              I’m a first-year master's student studying meteorology at Mississippi State University, focusing on synoptic meteorology, weather communication, and AI/ML modeling techniques. I love using research to help people prepare for
+              I'm a first-year master's student studying meteorology at Mississippi State University, focusing on synoptic meteorology, weather communication, and AI/ML modeling techniques. I l[...]
               severe weather and the ever-evolving state of the atmosphere.
             </p>
 
@@ -1013,7 +1014,7 @@ function HomePage() {
             <p className="mx-auto max-w-3xl text-center text-lg leading-relaxed text-slate-700 dark:text-slate-200">
               <span className="font-semibold">4.0 GPA</span> | Shackouls Honors College | Mississippi State University
               <br />
-              Pursuing graduate research in synoptic meteorology and atmospheric dynamics, specifically investigating the mechanisms of jet stream superposition and its role in explosive cyclogenesis. I aim to integrate these technical insights into the Weather, Climate, and Society framework to refine risk communication strategies and improve institutional decision-making for communities during high-impact weather events.
+              Pursuing graduate research in synoptic meteorology and atmospheric dynamics, specifically investigating the mechanisms of jet stream superposition and its role in explosive cycloge[...]
             </p>
 
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -1039,15 +1040,15 @@ function HomePage() {
 
             <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
               <Callout title={<span className="block w-full text-center">Core Competencies</span>} tone="slate">
-               I work with large meteorological datasets using R and Python and study large-scale atmospheric dynamics, especially jet stream interactions and their impacts on winter weather. I also create visualizations and GIS products that help communicate complex weather information to diverse audiences.
+                I work with large meteorological datasets using R and Python and study large-scale atmospheric dynamics, especially jet stream interactions and their impacts on winter weather. I [...]
               </Callout>
 
               <Callout title={<span className="block w-full text-center">Research Focus</span>} tone="slate">
-                My research portfolio centers on the intersection of synoptic-scale dynamics and societal impacts, investigating how extreme weather triggers influence public risk perception. I am dedicated to integrating the principles of weather, climate, and society into the study of high-impact events, with a specific focus on optimizing protective action and communication strategies for all people and communities.
+                My research portfolio centers on the intersection of synoptic-scale dynamics and societal impacts, investigating how extreme weather triggers influence public risk perception. I [...]
               </Callout>
 
               <Callout title={<span className="block w-full text-center">Professional Interests</span>} tone="slate">
-                I am pursuing graduate-level research and professional collaborations focused on integrating synoptic meteorology, climate risk, and sociology. My objective is to develop equitable decision-support frameworks and science communication tools that translate rigorous meteorological modeling into improved public safety outcomes, ensuring advanced dynamical forecasts serve all effectively.
+                I am pursuing graduate-level research and professional collaborations focused on integrating synoptic meteorology, climate risk, and sociology. My objective is to develop equitab[...]
               </Callout>
             </div>
 
@@ -1086,8 +1087,8 @@ function ResearchPage() {
               </h3>
 
               <p className="mt-4 text-slate-700 dark:text-slate-200 leading-relaxed">
-                I’m investigating how international students at Mississippi State University perceive severe weather and
-                its risks. I’m focusing on how prior weather experience, language and cultural context, and warning
+                I'm investigating how international students at Mississippi State University perceive severe weather and
+                its risks. I'm focusing on how prior weather experience, language and cultural context, and warning
                 comprehension shape decision-making, plus which channels (sirens, WEA, social media) students trust.
               </p>
 
@@ -1204,7 +1205,7 @@ function ProjectCard({ proj, onOpen }) {
             {proj.subtitle}
           </p>
         </div>
-        <span className="mt-1 inline-flex items-center rounded-full px-2 py-1 text-xs font-semibold bg-slate-50 text-slate-700 ring-1 ring-black/5 dark:bg-slate-900/40 dark:text-slate-200 dark:ring-white/10">
+        <span className="mt-1 inline-flex items-center rounded-full px-2 py-1 text-xs font-semibold bg-slate-50 text-slate-700 ring-1 ring-black/5 dark:bg-slate-900/40 dark:text-slate-200 dark:r[...]
           Details
         </span>
       </div>
@@ -1301,17 +1302,17 @@ function ExperiencePage() {
           <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
   {/* Section 1: How I work */}
   <Callout title={<span className="block w-full text-center">Methodological Approach</span>} tone="slate">
-    I structure my work around reproducible research frameworks and rigorous documentation to ensure data integrity. My output strategy is communication-centric, transforming technical analysis into high-impact dashboards, cartographic products, and stakeholder-ready briefs that prioritize clarity and utility.
+    I structure my work around reproducible research frameworks and rigorous documentation to ensure data integrity. My output strategy is communication-centric, transforming technical analysis [...]
   </Callout>
 
   {/* Section 2: Tools I use */}
   <Callout title={<span className="block w-full text-center">Technical Proficiency</span>} tone="slate">
-    I leverage a comprehensive technical stack anchored in Python for automated analysis and ArcGIS Pro for advanced spatial workflows. Additionally, I utilize modern web development technologies to craft interactive outreach platforms, ensuring scientific findings are accessible and engaging.
+    I leverage a comprehensive technical stack anchored in Python for automated analysis and ArcGIS Pro for advanced spatial workflows. Additionally, I utilize modern web development technologie[...]
   </Callout>
 
   {/* Section 3: What I want next */}
   <Callout title={<span className="block w-full text-center">Career Objectives</span>} tone="slate">
-    I am seeking professional opportunities at the nexus of climate resilience, wildfire dynamics, and geospatial science. My goal is to apply integrated GIS workflows and strategic science communication to enhance community readiness and optimize response protocols for critical environmental challenges.
+    I am seeking professional opportunities at the nexus of climate resilience, wildfire dynamics, and geospatial science. My goal is to apply integrated GIS workflows and strategic science comm[...]
   </Callout>
 </div>
         </motion.div>
@@ -1466,15 +1467,15 @@ function ContactPage() {
                 />
 
                 <p className="text-lg text-slate-700 dark:text-slate-200 leading-relaxed">
-                  Whether you’re interested in collaborating on research, discussing internship openings, 
-                  or simply want to chat about a shared love for the weather, I’d love to hear from you. 
-                  Email is the best way to reach me, and I’m also active on LinkedIn.
+                  Whether you're interested in collaborating on research, discussing internship openings, 
+                  or simply want to chat about a shared love for the weather, I'd love to hear from you. 
+                  Email is the best way to reach me, and I'm also active on LinkedIn.
                 </p>
 
                 <div className="pt-2 flex flex-col sm:flex-row gap-4">
                   <a
                     href={`mailto:${profile.email}`}
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold border-2 border-sky-600 text-sky-700 hover:bg-sky-600 hover:text-white transition shadow-sm"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold border-2 border-sky-600 text-sky-700 hover:bg-sky-600 hover:text-white transition [...]
                   >
                     {profile.email}
                     <EnvelopeIcon className="h-5 w-5" />
@@ -1484,7 +1485,7 @@ function ContactPage() {
                     href={profile.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold border-2 border-sky-600 text-sky-700 hover:bg-sky-600 hover:text-white transition shadow-sm"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold border-2 border-sky-600 text-sky-700 hover:bg-sky-600 hover:text-white transition [...]
                   >
                     LinkedIn
                     <LinkIcon className="h-5 w-5" />
@@ -1492,7 +1493,7 @@ function ContactPage() {
 
                   <a
                     href={profile.resume}
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold text-white shadow-lg bg-gradient-to-r from-sky-600 to-emerald-500 hover:brightness-110 hover:-translate-y-[1px] transition"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold text-white shadow-lg bg-gradient-to-r from-sky-600 to-emerald-500 hover:brightness[...]
                   >
                     View Résumé
                     <ArrowDownTrayIcon className="h-5 w-5" />
@@ -1559,7 +1560,7 @@ function NotFoundPage() {
         <div className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-black/5 dark:bg-slate-950 dark:ring-white/10">
           <h1 className="text-3xl font-extrabold">Page not found</h1>
           <p className="mt-3 text-slate-700 dark:text-slate-200">
-            That route doesn’t exist. Use the menu to navigate.
+            That route doesn't exist. Use the menu to navigate.
           </p>
           <div className="mt-6">
             <PrimaryLink to="/">Go Home</PrimaryLink>
@@ -1581,6 +1582,7 @@ export default function PersonalWebsite() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/research" element={<ResearchPage />} />
+        <Route path="/sandy" element={<HurricaneSandyPage />} />
         <Route path="/experience" element={<ExperiencePage />} />
         <Route path="/survey" element={<SurveyPage />} />
         <Route path="/contact" element={<ContactPage />} />
