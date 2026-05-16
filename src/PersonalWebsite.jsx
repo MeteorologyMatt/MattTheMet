@@ -14,7 +14,6 @@ import {
 } from "@heroicons/react/24/outline";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Routes, Route, NavLink, Link, useLocation } from "react-router-dom";
-import { HurricaneSandyPage } from "./pages/HurricaneSandyPage";
 
 /* -------------------------------------------------------------------------- */
 /* Utilities                                                                   */
@@ -1040,7 +1039,7 @@ function HomePage() {
 
             <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
               <Callout title={<span className="block w-full text-center">Core Competencies</span>} tone="slate">
-                I work with large meteorological datasets using R and Python and study large-scale atmospheric dynamics, especially jet stream interactions and their impacts on winter weather. I [...]
+                I work with large meteorological datasets using R and Python and study large-scale atmospheric dynamics, especially jet stream interactions and their impacts on winter weather. I[...]
               </Callout>
 
               <Callout title={<span className="block w-full text-center">Research Focus</span>} tone="slate">
@@ -1066,115 +1065,15 @@ function HomePage() {
 
 function ResearchPage() {
   const { page, fadeInUp } = useMotionPresets();
+  
+  // Import Research component directly
+  const Research = require('./pages/Research.jsx').default;
 
   return (
     <motion.div {...page}>
       <Container className="px-6 lg:px-12 py-12">
         <motion.div {...fadeInUp}>
-          <SectionHeading
-            icon={DocumentTextIcon}
-            title="Research"
-            subtitle="Honors thesis focus and current research direction."
-          />
-
-          {/* Grid Layout: 2 Columns (50/50 split) for Research Cards Only */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            
-            {/* --- LEFT COLUMN: Honors Thesis --- */}
-            <div className="h-full flex flex-col rounded-2xl bg-white p-7 shadow-sm ring-1 ring-black/5 dark:bg-slate-950 dark:ring-white/10">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50">
-                Honors Thesis: Severe Weather Risk Perception
-              </h3>
-
-              <p className="mt-4 text-slate-700 dark:text-slate-200 leading-relaxed">
-                I'm investigating how international students at Mississippi State University perceive severe weather and
-                its risks. I'm focusing on how prior weather experience, language and cultural context, and warning
-                comprehension shape decision-making, plus which channels (sirens, WEA, social media) students trust.
-              </p>
-
-              <p className="mt-4 text-slate-700 dark:text-slate-200 leading-relaxed">
-                The goal is to surface actionable recommendations for MSU alerts, outreach, and culturally responsive
-                risk communication that reduces confusion and improves action.
-              </p>
-
-              {/* Presentation Highlight: Thesis */}
-              <div className="mt-6 border-l-4 border-sky-500 pl-4 py-1 bg-sky-50/50 dark:bg-sky-900/10 rounded-r-lg">
-                <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100">
-                  Upcoming Presentation
-                </h4>
-                <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">
-                  <span className="font-semibold text-sky-700 dark:text-sky-400 block mb-1">
-                    2026 Southeast Severe Storms Symposium
-                  </span>
-                  Presenting findings on risk perception gaps and warning channel trust among diverse student populations.
-                </p>
-              </div>
-
-              {/* Badges - Pushed to bottom */}
-              <div className="mt-auto pt-6 flex flex-wrap gap-2">
-                <Badge tone="sky">Risk Communication</Badge>
-                <Badge tone="emerald">Weather & Society</Badge>
-                <Badge tone="slate">Survey Research</Badge>
-              </div>
-            </div>
-
-            {/* --- RIGHT COLUMN: SEMBRAR --- */}
-            <div className="h-full flex flex-col rounded-2xl bg-white p-7 shadow-sm ring-1 ring-black/5 dark:bg-slate-950 dark:ring-white/10">
-              <h3 className="text-xl font-bold text-emerald-900 dark:text-emerald-400">
-                Current Role: SEMBRAR Mississippi & Florida
-              </h3>
-              
-              <p className="mt-4 text-slate-700 dark:text-slate-200 leading-relaxed">
-                I am a student researcher for the SEMBRAR project, a multidisciplinary initiative fostering 
-                environmental literacy among multilingual learners. I analyze how synoptic-scale processes 
-                translate into localized environmental risks.
-              </p>
-              
-              <p className="mt-4 text-slate-700 dark:text-slate-200 leading-relaxed">
-                By applying weather, climate, and society principles, I develop ways to communicate 
-                these complex weather and environmental phenomena to diverse communities, integrating place-based education.
-              </p>
-
-              {/* Presentation Highlight: SEMBRAR */}
-              <div className="mt-6 border-l-4 border-emerald-500 pl-4 py-1 bg-emerald-50/50 dark:bg-emerald-900/10 rounded-r-lg">
-                <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100">
-                  Upcoming Presentation
-                </h4>
-                <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">
-                  <span className="font-semibold text-emerald-700 dark:text-emerald-400 block mb-1">
-                    MSU Undergraduate Research Symposium (Spring 2026)
-                  </span>
-                  Presenting research on the intersection of atmospheric physics and community advocacy within a bilingual framework.
-                </p>
-              </div>
-              
-              {/* Badges */}
-              <div className="mt-auto pt-6 flex flex-wrap gap-2">
-                 <Badge tone="emerald">Bilingual Education</Badge>
-                 <Badge tone="sky">Synoptic Meteorology</Badge>
-                 <Badge tone="slate">Social Research</Badge>
-              </div>
-            </div>
-
-          </div>
-
-          {/* --- NEW: Centered Contact Section Below Grid --- */}
-          {/* mt-24 adds space above. pb-12 ensures space before the footer starts. */}
-          <div className="mt-24 pb-12 flex flex-col items-center justify-center space-y-6">
-            <h2 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-50">
-              Questions? Feel free to reach out!
-            </h2>
-            
-            <p className="text-slate-600 dark:text-slate-300 text-center max-w-lg">
-              I am always interested in connecting with peers and professionals working in synoptic meteorology, risk communication, or societal resilience.
-            </p>
-
-            <PrimaryLink to="/contact" className="px-8 py-3">
-              Contact Me
-              <EnvelopeIcon className="h-5 w-5 ml-2" />
-            </PrimaryLink>
-          </div>
-
+          <Research />
         </motion.div>
       </Container>
     </motion.div>
@@ -1582,7 +1481,6 @@ export default function PersonalWebsite() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/research" element={<ResearchPage />} />
-        <Route path="/sandy" element={<HurricaneSandyPage />} />
         <Route path="/experience" element={<ExperiencePage />} />
         <Route path="/survey" element={<SurveyPage />} />
         <Route path="/contact" element={<ContactPage />} />
