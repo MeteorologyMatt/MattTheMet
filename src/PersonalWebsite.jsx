@@ -1157,8 +1157,42 @@ function ResearchPage() {
 
           </div>
 
-          {/* --- NEW: Centered Contact Section Below Grid --- */}
-          {/* mt-24 adds space above. pb-12 ensures space before the footer starts. */}
+          {/* --- ADDED: Class Projects Subsection --- */}
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-6">
+              Class Projects
+            </h3>
+            
+            <div className="rounded-2xl bg-white p-7 shadow-sm ring-1 ring-black/5 dark:bg-slate-950 dark:ring-white/10 max-w-3xl">
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                <Badge tone="sky">Synoptic Dynamics</Badge>
+                <Badge tone="slate">Mesoscale Overview</Badge>
+              </div>
+              
+              <h4 className="text-xl font-bold text-slate-900 dark:text-slate-50">
+                Hurricane Sandy Weather Event Analysis
+              </h4>
+              
+              <p className="mt-3 text-slate-600 dark:text-slate-300 leading-relaxed text-sm">
+                A comprehensive meteorological investigation mapping Sandy's pressure fields, geopotential heights, 
+                and rapid structural transition using Matplotlib and Cartopy visualizations alongside vertical sounding profiles.
+              </p>
+              
+              <div className="mt-6">
+                <Link
+                  to="/sandy"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold text-white shadow-lg bg-gradient-to-r from-sky-600 to-emerald-500 hover:brightness-110 hover:-translate-y-[1px] transition text-sm"
+                >
+                  View Event Dashboard
+                  <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 11-1.414-1.414L13.586 10 10.293 6.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* --- Centered Contact Section Below Grid --- */}
           <div className="mt-24 pb-12 flex flex-col items-center justify-center space-y-6">
             <h2 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-50">
               Questions? Feel free to reach out!
@@ -1179,7 +1213,6 @@ function ResearchPage() {
     </motion.div>
   );
 }
-
 function ProjectCard({ proj, onOpen }) {
   return (
     <button
