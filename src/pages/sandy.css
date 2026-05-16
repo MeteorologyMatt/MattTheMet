@@ -1,0 +1,219 @@
+/* =========================
+   Root Variables
+========================= */
+.sandy-page {
+  --bg-gradient: linear-gradient(135deg, #050a1b 0%, #1a2a4e 100%);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-header-bg: rgba(108, 125, 167, 0.3);
+  --border: 1px solid rgba(255, 255, 255, 0.1);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+
+  --text-primary: #e0e6ed;
+  --text-secondary: #a0aec0;
+  --accent: #6c7da7;
+  --accent-light: #a3b1c6;
+  --white: #ffffff;
+
+  --radius: 12px;
+  --font-heading: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  background: var(--bg-gradient);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* =========================
+   Typography & Elements
+========================= */
+.sandy-page h1,
+.sandy-page h2,
+.sandy-page h3 {
+  font-family: var(--font-heading);
+  margin-top: 0;
+}
+
+.sandy-page h1 {
+  margin-bottom: 15px;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: var(--white);
+}
+
+.sandy-page h2 {
+  color: var(--white);
+}
+
+.sandy-page h3 {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.sandy-page p {
+  margin-top: 0;
+}
+
+.sandy-page ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.sandy-page li {
+  margin-bottom: 15px;
+}
+
+.sandy-page strong {
+  color: var(--text-primary);
+}
+
+.sandy-page img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.sandy-page img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================
+   Header
+========================= */
+.sandy-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 60px 20px;
+  text-align: center;
+  background: rgba(26, 42, 78, 0.4);
+  backdrop-filter: blur(15px);
+  border-bottom: var(--border);
+  box-shadow: var(--shadow);
+}
+
+.sandy-header p {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--accent-light);
+  opacity: 0.9;
+}
+
+.sandy-page .authors {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+/* =========================
+   Layout
+========================= */
+.sandy-page .container {
+  max-width: 1400px;
+  margin: 60px auto;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.sandy-page .section {
+  overflow: hidden;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sandy-page .section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.45);
+}
+
+.sandy-page .section-title {
+  margin: 0;
+  padding: 20px 30px;
+  background: var(--card-header-bg);
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.sandy-page .section-content {
+  padding: 30px;
+  color: var(--text-secondary);
+}
+
+.sandy-page .section-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+@media (min-width: 1000px) {
+  .sandy-page .section-grid {
+    grid-template-columns: 1fr 2.5fr;
+  }
+}
+
+/* =========================
+   Media Layouts
+========================= */
+.sandy-page .visual-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sandy-page .single-visual {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sandy-page .image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.sandy-page .soundings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.sandy-page .caption {
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+/* =========================
+   Footer
+========================= */
+.sandy-footer {
+  margin-top: 80px;
+  padding: 40px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  border-top: var(--border);
+}
+
+.sandy-footer p {
+  margin-bottom: 5px;
+}
