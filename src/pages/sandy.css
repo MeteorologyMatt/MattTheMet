@@ -85,11 +85,10 @@
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-//* =========================
+/* =========================
    Header (Standard Position)
 ========================= */
 .sandy-header {
-  /* We removed position: sticky, top: 0, and z-index so it scrolls away naturally! */
   padding: 60px 20px;
   text-align: center;
   background: rgba(26, 42, 78, 0.4);
