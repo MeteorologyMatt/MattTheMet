@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './sandyCode.css';
 
 export default function SandyCode() {
+  // Wakes up Prism.js to add colors and the copy button after the page loads
+  useEffect(() => {
+    if (window.Prism) {
+      window.Prism.highlightAll();
+    }
+  }, []);
+
   return (
     <div className="code-page">
       <div className="container">
         {/* HERO HEADER */}
+        
+        {/* ... THE REST OF YOUR FILE STAYS EXACTLY THE SAME! ... */}
         <header>
           <div className="course-title">Computer Programming for Meteorologists</div>
           <h1>Final Project Code</h1>
