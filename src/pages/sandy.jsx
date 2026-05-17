@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './sandy.css';
 
 export default function Sandy() {
   const BASE = import.meta.env.BASE_URL;
+  
+  // React state to track which image is currently zoomed in
+  const [zoomedImage, setZoomedImage] = useState(null);
+
+  // Close the modal if the user hits the Escape key
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') setZoomedImage(null);
+    }
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <div className="sandy-page">
@@ -47,16 +59,22 @@ export default function Sandy() {
             <div className="visual-stack">
               <h3>Animation (GIF):</h3>
               <div className="single-visual">
-                <img src={`${BASE}MSLP & Winds GIF.gif`} alt="MSLP and Winds Animation" />
+                <img 
+                  src={`${BASE}MSLP & Winds GIF.gif`} 
+                  alt="MSLP and Winds Animation" 
+                  onClick={() => setZoomedImage({ src: `${BASE}MSLP & Winds GIF.gif`, alt: "MSLP and Winds Animation" })}
+                />
               </div>
               <h3>Timestep Snapshots:</h3>
               <div className="image-grid">
-                <img src={`${BASE}mslp_winds_0600_003.png`} alt="MSLP H+3" />
-                <img src={`${BASE}mslp_winds_0600_006.png`} alt="MSLP H+6" />
-                <img src={`${BASE}mslp_winds_0600_012.png`} alt="MSLP H+12" />
-                <img src={`${BASE}mslp_winds_0600_018.png`} alt="MSLP H+18" />
-                <img src={`${BASE}mslp_winds_0600_024.png`} alt="MSLP H+24" />
-                <img src={`${BASE}mslp_winds_0600_027.png`} alt="MSLP H+27" />
+                {['003', '006', '012', '018', '024', '027'].map((time) => (
+                  <img 
+                    key={time}
+                    src={`${BASE}mslp_winds_0600_${time}.png`} 
+                    alt={`MSLP H+${time}`} 
+                    onClick={() => setZoomedImage({ src: `${BASE}mslp_winds_0600_${time}.png`, alt: `MSLP H+${time}` })}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -77,14 +95,22 @@ export default function Sandy() {
             <div className="visual-stack">
               <h3>Animation (GIF):</h3>
               <div className="single-visual">
-                <img src={`${BASE}Sandy GH & Moisture.gif`} alt="Geopotential Height and Moisture Animation" />
+                <img 
+                  src={`${BASE}Sandy GH & Moisture.gif`} 
+                  alt="Geopotential Height and Moisture Animation" 
+                  onClick={() => setZoomedImage({ src: `${BASE}Sandy GH & Moisture.gif`, alt: "Geopotential Height and Moisture Animation" })}
+                />
               </div>
               <h3>Height &amp; Moisture Timesteps:</h3>
               <div className="image-grid">
-                <img src={`${BASE}GeopotentialGFS_0600_003.png`} alt="Geopotential H+3" />
-                <img src={`${BASE}GeopotentialGFS_0600_012.png`} alt="Geopotential H+12" />
-                <img src={`${BASE}GeopotentialGFS_0600_018.png`} alt="Geopotential H+18" />
-                <img src={`${BASE}GeopotentialGFS_0600_027.png`} alt="Geopotential H+27" />
+                {['003', '006', '012', '018', '024', '027'].map((time) => (
+                  <img 
+                    key={time}
+                    src={`${BASE}GeopotentialGFS_0600_${time}.png`} 
+                    alt={`Geopotential H+${time}`} 
+                    onClick={() => setZoomedImage({ src: `${BASE}GeopotentialGFS_0600_${time}.png`, alt: `Geopotential H+${time}` })}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -105,16 +131,20 @@ export default function Sandy() {
             <div className="visual-stack">
               <h3>Animation (GIF):</h3>
               <div className="single-visual">
-                <img src={`${BASE}Radar Reflectivity GIF.gif`} alt="Radar Reflectivity Animation" />
+                <img 
+                  src={`${BASE}Radar Reflectivity GIF.gif`} 
+                  alt="Radar Reflectivity Animation" 
+                  onClick={() => setZoomedImage({ src: `${BASE}Radar Reflectivity GIF.gif`, alt: "Radar Reflectivity Animation" })}
+                />
               </div>
               <h3>Key Radar Moments:</h3>
               <div className="image-grid">
-                <img src={`${BASE}Radar_1029_060303.png`} alt="Radar Oct 29 06z" />
-                <img src={`${BASE}Radar_1029_120246.png`} alt="Radar Oct 29 12z" />
-                <img src={`${BASE}Radar_175907.png`} alt="Radar Oct 29 17z" />
-                <img src={`${BASE}Radar_210138.png`} alt="Radar Oct 29 21z" />
-                <img src={`${BASE}Radar_1030_030148.png`} alt="Radar Oct 30 03z" />
-                <img src={`${BASE}Radar_1030_055815.png`} alt="Radar Oct 30 05z" />
+                <img src={`${BASE}Radar_1029_060303.png`} alt="Radar Oct 29 06z" onClick={() => setZoomedImage({ src: `${BASE}Radar_1029_060303.png`, alt: "Radar Oct 29 06z" })} />
+                <img src={`${BASE}Radar_1029_120246.png`} alt="Radar Oct 29 12z" onClick={() => setZoomedImage({ src: `${BASE}Radar_1029_120246.png`, alt: "Radar Oct 29 12z" })} />
+                <img src={`${BASE}Radar_1029_175907.png`} alt="Radar Oct 29 17z" onClick={() => setZoomedImage({ src: `${BASE}Radar_1029_175907.png`, alt: "Radar Oct 29 17z" })} />
+                <img src={`${BASE}Radar_1029_210138.png`} alt="Radar Oct 29 21z" onClick={() => setZoomedImage({ src: `${BASE}Radar_1029_210138.png`, alt: "Radar Oct 29 21z" })} />
+                <img src={`${BASE}Radar_1030_030148.png`} alt="Radar Oct 30 03z" onClick={() => setZoomedImage({ src: `${BASE}Radar_1030_030148.png`, alt: "Radar Oct 30 03z" })} />
+                <img src={`${BASE}Radar_1030_055815.png`} alt="Radar Oct 30 05z" onClick={() => setZoomedImage({ src: `${BASE}Radar_1030_055815.png`, alt: "Radar Oct 30 05z" })} />
               </div>
             </div>
           </div>
@@ -131,17 +161,17 @@ export default function Sandy() {
             <div className="soundings-grid">
               <div>
                 <h3>Pre-Landfall (Oct 29, 12z)</h3>
-                <img src={`${BASE}okx_oct29_12z_sounding.png`} alt="Sounding Oct 29 12z" />
+                <img src={`${BASE}okx_oct29_12z_sounding.png`} alt="Sounding Oct 29 12z" onClick={() => setZoomedImage({ src: `${BASE}okx_oct29_12z_sounding.png`, alt: "Sounding Oct 29 12z" })} />
                 <p className="caption">Environment 12 hours prior to landfall.</p>
               </div>
               <div>
                 <h3>Around Landfall (Oct 30, 00z)</h3>
-                <img src={`${BASE}okx_oct30_0z_sounding.png`} alt="Sounding Oct 30 00z" />
+                <img src={`${BASE}okx_oct30_0z_sounding.png`} alt="Sounding Oct 30 00z" onClick={() => setZoomedImage({ src: `${BASE}okx_oct30_0z_sounding.png`, alt: "Sounding Oct 30 00z" })} />
                 <p className="caption">Environment around the time of landfall.</p>
               </div>
               <div>
                 <h3>Post-Landfall (Oct 30, 12z)</h3>
-                <img src={`${BASE}okx_oct30_12z_sounding.png`} alt="Sounding Oct 30 12z" />
+                <img src={`${BASE}okx_oct30_12z_sounding.png`} alt="Sounding Oct 30 12z" onClick={() => setZoomedImage({ src: `${BASE}okx_oct30_12z_sounding.png`, alt: "Sounding Oct 30 12z" })} />
                 <p className="caption">Environment 12 hours following landfall.</p>
               </div>
             </div>
@@ -163,7 +193,7 @@ export default function Sandy() {
             <div className="visual-stack">
               <h3>Atlantic City Buoy Station ACYN4:</h3>
               <div className="single-visual">
-                <img src={`${BASE}Buoy Station ACYN4 Meteogram.png`} alt="Atlantic City Buoy Meteogram" />
+                <img src={`${BASE}Buoy Station ACYN4 Meteogram.png`} alt="Atlantic City Buoy Meteogram" onClick={() => setZoomedImage({ src: `${BASE}Buoy Station ACYN4 Meteogram.png`, alt: "Atlantic City Buoy Meteogram" })} />
               </div>
             </div>
           </div>
@@ -174,6 +204,14 @@ export default function Sandy() {
         <p>&copy; 2026 - Hurricane Sandy Analysis | Noelle Davis, Matthew Lentz, Gabe Slade</p>
         <p>A meteorological dashboard built for scientific understanding.</p>
       </footer>
+
+      {/* React Image Zoom Modal */}
+      {zoomedImage && (
+        <div className="image-modal active" onClick={() => setZoomedImage(null)}>
+          <span className="close-modal" onClick={() => setZoomedImage(null)}>&times;</span>
+          <img src={zoomedImage.src} alt={zoomedImage.alt} onClick={(e) => e.stopPropagation()} />
+        </div>
+      )}
     </div>
   );
 }
