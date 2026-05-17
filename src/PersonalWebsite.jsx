@@ -1157,13 +1157,12 @@ function ResearchPage() {
 
           </div>
 
-          {/* --- Class Projects Subsection --- */}
+          {/* --- NEW: Class Projects Subsection --- */}
           <div className="mt-12">
             <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-6">
               Class Projects
             </h3>
             
-            {/* The Grid: 1 column on mobile, 2 columns side-by-side on large screens */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               
               {/* Project 1: Sandy Dashboard */}
@@ -1225,6 +1224,28 @@ function ResearchPage() {
 
             </div>
           </div>
+
+          {/* --- Centered Contact Section Below Grid --- */}
+          <div className="mt-24 pb-12 flex flex-col items-center justify-center space-y-6">
+            <h2 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-50">
+              Questions? Feel free to reach out!
+            </h2>
+            
+            <p className="text-slate-600 dark:text-slate-300 text-center max-w-lg">
+              I am always interested in connecting with peers and professionals working in synoptic meteorology, risk communication, or societal resilience.
+            </p>
+
+            <PrimaryLink to="/contact" className="px-8 py-3">
+              Contact Me
+              <EnvelopeIcon className="h-5 w-5 ml-2" />
+            </PrimaryLink>
+          </div>
+
+        </motion.div>
+      </Container>
+    </motion.div>
+  );
+}
 
 function ProjectCard({ proj, onOpen }) {
   return (
