@@ -1,7 +1,10 @@
 import React from 'react';
-import './sandy.css'; // We will put your custom styles in here!
+import './sandy.css';
 
 export default function Sandy() {
+  // Dynamically gets the base URL ('/MattTheMet-backup/') so images load on GitHub Pages
+  const BASE = import.meta.env.BASE_URL;
+
   return (
     <div className="sandy-page">
       <header className="sandy-header">
@@ -45,16 +48,16 @@ export default function Sandy() {
             <div className="visual-stack">
               <h3>Animation (GIF):</h3>
               <div className="single-visual">
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/GIFs/MSLP%20%26%20Winds%20GIF.gif" alt="MSLP and Winds Animation" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/GIFs/MSLP%20%26%20Winds%20GIF.gif`} alt="MSLP and Winds Animation" />
               </div>
               <h3>Timestep Snapshots:</h3>
               <div className="image-grid">
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/mslp_winds_0600_003.png" alt="MSLP H+3" />
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/mslp_winds_0600_006.png" alt="MSLP H+6" />
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/mslp_winds_0600_012.png" alt="MSLP H+12" />
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/mslp_winds_0600_018.png" alt="MSLP H+18" />
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/mslp_winds_0600_024.png" alt="MSLP H+24" />
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/mslp_winds_0600_027.png" alt="MSLP H+27" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/mslp_winds_0600_003.png`} alt="MSLP H+3" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/mslp_winds_0600_006.png`} alt="MSLP H+6" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/mslp_winds_0600_012.png`} alt="MSLP H+12" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/mslp_winds_0600_018.png`} alt="MSLP H+18" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/mslp_winds_0600_024.png`} alt="MSLP H+24" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/mslp_winds_0600_027.png`} alt="MSLP H+27" />
               </div>
             </div>
           </div>
@@ -75,14 +78,14 @@ export default function Sandy() {
             <div className="visual-stack">
               <h3>Animation (GIF):</h3>
               <div className="single-visual">
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/GIFs/Sandy%20GH%20%26%20Moisture.gif" alt="Geopotential Height and Moisture Animation" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/GIFs/Sandy%20GH%20%26%20Moisture.gif`} alt="Geopotential Height and Moisture Animation" />
               </div>
               <h3>Height &amp; Moisture Timesteps:</h3>
               <div className="image-grid">
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/GeopotentialGFS_0600_003.png" alt="Geopotential H+3" />
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/GeopotentialGFS_0600_012.png" alt="Geopotential H+12" />
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/GeopotentialGFS_0600_018.png" alt="Geopotential H+18" />
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/GeopotentialGFS_0600_027.png" alt="Geopotential H+27" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/GeopotentialGFS_0600_003.png`} alt="Geopotential H+3" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/GeopotentialGFS_0600_012.png`} alt="Geopotential H+12" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/GeopotentialGFS_0600_018.png`} alt="Geopotential H+18" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/GeopotentialGFS_0600_027.png`} alt="Geopotential H+27" />
               </div>
             </div>
           </div>
@@ -103,16 +106,16 @@ export default function Sandy() {
             <div className="visual-stack">
               <h3>Animation (GIF):</h3>
               <div className="single-visual">
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/GIFs/Radar%20Reflectivity%20GIF.gif" alt="Radar Reflectivity Animation" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/GIFs/Radar%20Reflectivity%20GIF.gif`} alt="Radar Reflectivity Animation" />
               </div>
               <h3>Key Radar Moments:</h3>
               <div className="image-grid">
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/Radar_1029_060303.png" alt="Radar Oct 29 06z" />
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/Radar_1029_120246.png" alt="Radar Oct 29 12z" />
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/Radar_1029_175907.png" alt="Radar Oct 29 17z" />
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/Radar_1029_210138.png" alt="Radar Oct 29 21z" />
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/Radar_1030_030148.png" alt="Radar Oct 30 03z" />
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/Radar_1030_055815.png" alt="Radar Oct 30 05z" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/Radar_1029_060303.png`} alt="Radar Oct 29 06z" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/Radar_1029_120246.png`} alt="Radar Oct 29 12z" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/Radar_1029_175907.png`} alt="Radar Oct 29 17z" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/Radar_1029_210138.png`} alt="Radar Oct 29 21z" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/Radar_1030_030148.png`} alt="Radar Oct 30 03z" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/Radar_1030_055815.png`} alt="Radar Oct 30 05z" />
               </div>
             </div>
           </div>
@@ -129,17 +132,17 @@ export default function Sandy() {
             <div className="soundings-grid">
               <div>
                 <h3>Pre-Landfall (Oct 29, 12z)</h3>
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/okx_oct29_12z_sounding.png" alt="Sounding Oct 29 12z" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/okx_oct29_12z_sounding.png`} alt="Sounding Oct 29 12z" />
                 <p className="caption">Environment 12 hours prior to landfall.</p>
               </div>
               <div>
                 <h3>Around Landfall (Oct 30, 00z)</h3>
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/okx_oct30_0z_sounding.png" alt="Sounding Oct 30 00z" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/okx_oct30_0z_sounding.png`} alt="Sounding Oct 30 00z" />
                 <p className="caption">Environment around the time of landfall.</p>
               </div>
               <div>
                 <h3>Post-Landfall (Oct 30, 12z)</h3>
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/okx_oct30_12z_sounding.png" alt="Sounding Oct 30 12z" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/okx_oct30_12z_sounding.png`} alt="Sounding Oct 30 12z" />
                 <p className="caption">Environment 12 hours following landfall.</p>
               </div>
             </div>
@@ -161,7 +164,7 @@ export default function Sandy() {
             <div className="visual-stack">
               <h3>Atlantic City Buoy Station ACYN4:</h3>
               <div className="single-visual">
-                <img src="/Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/Buoy%20Station%20ACYN4%20Meteogram.png" alt="Atlantic City Buoy Meteogram" />
+                <img src={`${BASE}Hurricane%20Sandy%20Analysis:%20Images%20and%20GIFs/Images/Buoy%20Station%20ACYN4%20Meteogram.png`} alt="Atlantic City Buoy Meteogram" />
               </div>
             </div>
           </div>
