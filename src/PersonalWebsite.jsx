@@ -14,7 +14,8 @@ import {
 } from "@heroicons/react/24/outline";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Routes, Route, NavLink, Link, useLocation } from "react-router-dom";
-
+import Sandy from './pages/sandy.jsx';
+import SandyCode from './pages/SandyCode.jsx';
 /* -------------------------------------------------------------------------- */
 /* Utilities                                                                   */
 /* -------------------------------------------------------------------------- */
@@ -1651,6 +1652,11 @@ export default function PersonalWebsite() {
         <Route path="/experience" element={<ExperiencePage />} />
         <Route path="/survey" element={<SurveyPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        
+        {/* Added these inside the layout wrapper! */}
+        <Route path="/sandy" element={<Sandy />} />
+        <Route path="/sandy-code" element={<SandyCode />} />
+        
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </SiteLayout>
