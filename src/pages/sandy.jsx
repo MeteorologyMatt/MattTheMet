@@ -2,12 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './sandy.css';
 
 export default function Sandy() {
-  const BASE = import.meta.env.BASE_URL;
-  
-  // React state to track which image is currently zoomed in
   const [zoomedImage, setZoomedImage] = useState(null);
 
-  // Close the modal if the user hits the Escape key
   useEffect(() => {
     function handleKeyDown(e) {
       if (e.key === 'Escape') setZoomedImage(null);
@@ -60,9 +56,9 @@ export default function Sandy() {
               <h3>Animation (GIF):</h3>
               <div className="single-visual">
                 <img 
-                  src={`${BASE}MSLP & Winds GIF.gif`} 
+                  src="MSLP%20%26%20Winds%20GIF.gif" 
                   alt="MSLP and Winds Animation" 
-                  onClick={() => setZoomedImage({ src: `${BASE}MSLP & Winds GIF.gif`, alt: "MSLP and Winds Animation" })}
+                  onClick={() => setZoomedImage({ src: "MSLP%20%26%20Winds%20GIF.gif", alt: "MSLP and Winds Animation" })}
                 />
               </div>
               <h3>Timestep Snapshots:</h3>
@@ -70,9 +66,9 @@ export default function Sandy() {
                 {['003', '006', '012', '018', '024', '027'].map((time) => (
                   <img 
                     key={time}
-                    src={`${BASE}mslp_winds_0600_${time}.png`} 
+                    src={`mslp_winds_0600_${time}.png`} 
                     alt={`MSLP H+${time}`} 
-                    onClick={() => setZoomedImage({ src: `${BASE}mslp_winds_0600_${time}.png`, alt: `MSLP H+${time}` })}
+                    onClick={() => setZoomedImage({ src: `mslp_winds_0600_${time}.png`, alt: `MSLP H+${time}` })}
                   />
                 ))}
               </div>
@@ -96,9 +92,9 @@ export default function Sandy() {
               <h3>Animation (GIF):</h3>
               <div className="single-visual">
                 <img 
-                  src={`${BASE}Sandy GH & Moisture.gif`} 
+                  src="Sandy%20GH%20%26%20Moisture.gif" 
                   alt="Geopotential Height and Moisture Animation" 
-                  onClick={() => setZoomedImage({ src: `${BASE}Sandy GH & Moisture.gif`, alt: "Geopotential Height and Moisture Animation" })}
+                  onClick={() => setZoomedImage({ src: "Sandy%20GH%20%26%20Moisture.gif", alt: "Geopotential Height and Moisture Animation" })}
                 />
               </div>
               <h3>Height &amp; Moisture Timesteps:</h3>
@@ -106,9 +102,9 @@ export default function Sandy() {
                 {['003', '006', '012', '018', '024', '027'].map((time) => (
                   <img 
                     key={time}
-                    src={`${BASE}GeopotentialGFS_0600_${time}.png`} 
+                    src={`GeopotentialGFS_0600_${time}.png`} 
                     alt={`Geopotential H+${time}`} 
-                    onClick={() => setZoomedImage({ src: `${BASE}GeopotentialGFS_0600_${time}.png`, alt: `Geopotential H+${time}` })}
+                    onClick={() => setZoomedImage({ src: `GeopotentialGFS_0600_${time}.png`, alt: `Geopotential H+${time}` })}
                   />
                 ))}
               </div>
@@ -132,19 +128,19 @@ export default function Sandy() {
               <h3>Animation (GIF):</h3>
               <div className="single-visual">
                 <img 
-                  src={`${BASE}Radar Reflectivity GIF.gif`} 
+                  src="Radar%20Reflectivity%20GIF.gif" 
                   alt="Radar Reflectivity Animation" 
-                  onClick={() => setZoomedImage({ src: `${BASE}Radar Reflectivity GIF.gif`, alt: "Radar Reflectivity Animation" })}
+                  onClick={() => setZoomedImage({ src: "Radar%20Reflectivity%20GIF.gif", alt: "Radar Reflectivity Animation" })}
                 />
               </div>
               <h3>Key Radar Moments:</h3>
               <div className="image-grid">
-                <img src={`${BASE}Radar_1029_060303.png`} alt="Radar Oct 29 06z" onClick={() => setZoomedImage({ src: `${BASE}Radar_1029_060303.png`, alt: "Radar Oct 29 06z" })} />
-                <img src={`${BASE}Radar_1029_120246.png`} alt="Radar Oct 29 12z" onClick={() => setZoomedImage({ src: `${BASE}Radar_1029_120246.png`, alt: "Radar Oct 29 12z" })} />
-                <img src={`${BASE}Radar_1029_175907.png`} alt="Radar Oct 29 17z" onClick={() => setZoomedImage({ src: `${BASE}Radar_1029_175907.png`, alt: "Radar Oct 29 17z" })} />
-                <img src={`${BASE}Radar_1029_210138.png`} alt="Radar Oct 29 21z" onClick={() => setZoomedImage({ src: `${BASE}Radar_1029_210138.png`, alt: "Radar Oct 29 21z" })} />
-                <img src={`${BASE}Radar_1030_030148.png`} alt="Radar Oct 30 03z" onClick={() => setZoomedImage({ src: `${BASE}Radar_1030_030148.png`, alt: "Radar Oct 30 03z" })} />
-                <img src={`${BASE}Radar_1030_055815.png`} alt="Radar Oct 30 05z" onClick={() => setZoomedImage({ src: `${BASE}Radar_1030_055815.png`, alt: "Radar Oct 30 05z" })} />
+                <img src="Radar_1029_060303.png" alt="Radar Oct 29 06z" onClick={() => setZoomedImage({ src: "Radar_1029_060303.png", alt: "Radar Oct 29 06z" })} />
+                <img src="Radar_1029_120246.png" alt="Radar Oct 29 12z" onClick={() => setZoomedImage({ src: "Radar_1029_120246.png", alt: "Radar Oct 29 12z" })} />
+                <img src="Radar_175907.png" alt="Radar Oct 29 17z" onClick={() => setZoomedImage({ src: "Radar_175907.png", alt: "Radar Oct 29 17z" })} />
+                <img src="Radar_210138.png" alt="Radar Oct 29 21z" onClick={() => setZoomedImage({ src: "Radar_210138.png", alt: "Radar Oct 29 21z" })} />
+                <img src="Radar_1030_030148.png" alt="Radar Oct 30 03z" onClick={() => setZoomedImage({ src: "Radar_1030_030148.png", alt: "Radar Oct 30 03z" })} />
+                <img src="Radar_1030_055815.png" alt="Radar Oct 30 05z" onClick={() => setZoomedImage({ src: "Radar_1030_055815.png", alt: "Radar Oct 30 05z" })} />
               </div>
             </div>
           </div>
@@ -161,17 +157,17 @@ export default function Sandy() {
             <div className="soundings-grid">
               <div>
                 <h3>Pre-Landfall (Oct 29, 12z)</h3>
-                <img src={`${BASE}okx_oct29_12z_sounding.png`} alt="Sounding Oct 29 12z" onClick={() => setZoomedImage({ src: `${BASE}okx_oct29_12z_sounding.png`, alt: "Sounding Oct 29 12z" })} />
+                <img src="okx_oct29_12z_sounding.png" alt="Sounding Oct 29 12z" onClick={() => setZoomedImage({ src: "okx_oct29_12z_sounding.png", alt: "Sounding Oct 29 12z" })} />
                 <p className="caption">Environment 12 hours prior to landfall.</p>
               </div>
               <div>
                 <h3>Around Landfall (Oct 30, 00z)</h3>
-                <img src={`${BASE}okx_oct30_0z_sounding.png`} alt="Sounding Oct 30 00z" onClick={() => setZoomedImage({ src: `${BASE}okx_oct30_0z_sounding.png`, alt: "Sounding Oct 30 00z" })} />
+                <img src="okx_oct30_0z_sounding.png" alt="Sounding Oct 30 00z" onClick={() => setZoomedImage({ src: "okx_oct30_0z_sounding.png", alt: "Sounding Oct 30 00z" })} />
                 <p className="caption">Environment around the time of landfall.</p>
               </div>
               <div>
                 <h3>Post-Landfall (Oct 30, 12z)</h3>
-                <img src={`${BASE}okx_oct30_12z_sounding.png`} alt="Sounding Oct 30 12z" onClick={() => setZoomedImage({ src: `${BASE}okx_oct30_12z_sounding.png`, alt: "Sounding Oct 30 12z" })} />
+                <img src="okx_oct30_12z_sounding.png" alt="Sounding Oct 30 12z" onClick={() => setZoomedImage({ src: "okx_oct30_12z_sounding.png", alt: "Sounding Oct 30 12z" })} />
                 <p className="caption">Environment 12 hours following landfall.</p>
               </div>
             </div>
@@ -193,7 +189,7 @@ export default function Sandy() {
             <div className="visual-stack">
               <h3>Atlantic City Buoy Station ACYN4:</h3>
               <div className="single-visual">
-                <img src={`${BASE}Buoy Station ACYN4 Meteogram.png`} alt="Atlantic City Buoy Meteogram" onClick={() => setZoomedImage({ src: `${BASE}Buoy Station ACYN4 Meteogram.png`, alt: "Atlantic City Buoy Meteogram" })} />
+                <img src="Buoy%20Station%20ACYN4%20Meteogram.png" alt="Atlantic City Buoy Meteogram" onClick={() => setZoomedImage({ src: "Buoy%20Station%20ACYN4%20Meteogram.png", alt: "Atlantic City Buoy Meteogram" })} />
               </div>
             </div>
           </div>
