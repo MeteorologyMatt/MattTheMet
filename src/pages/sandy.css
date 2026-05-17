@@ -73,6 +73,7 @@
   width: 100%;
   height: auto;
   display: block;
+  cursor: zoom-in;
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -85,7 +86,7 @@
 }
 
 /* =========================
-   Header
+   Header (Sticky Position)
 ========================= */
 .sandy-header {
   position: sticky;
@@ -93,7 +94,7 @@
   z-index: 100;
   padding: 60px 20px;
   text-align: center;
-  background: rgba(26, 42, 78, 0.4);
+  background: rgba(26, 42, 78, 0.75);
   backdrop-filter: blur(15px);
   border-bottom: var(--border);
   box-shadow: var(--shadow);
@@ -200,6 +201,54 @@
   margin-top: 10px;
   font-weight: bold;
   color: var(--accent);
+}
+
+/* =========================
+   Image Zoom Modal
+========================= */
+.sandy-page .image-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.sandy-page .image-modal.active {
+  display: flex;
+}
+
+.sandy-page .image-modal img {
+  max-width: 95%;
+  max-height: 90vh;
+  object-fit: contain;
+  cursor: default;
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+  transform: none;
+}
+
+.sandy-page .image-modal img:hover {
+  transform: none;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+}
+
+.sandy-page .close-modal {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.sandy-page .close-modal:hover {
+  color: var(--accent-light);
 }
 
 /* =========================
