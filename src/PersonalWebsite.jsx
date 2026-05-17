@@ -1157,62 +1157,75 @@ function ResearchPage() {
 
           </div>
 
-          {/* --- ADDED: Class Projects Subsection --- */}
+          {/* --- Class Projects Subsection --- */}
           <div className="mt-12">
             <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-6">
               Class Projects
             </h3>
             
-            <div className="rounded-2xl bg-white p-7 shadow-sm ring-1 ring-black/5 dark:bg-slate-950 dark:ring-white/10 max-w-3xl">
-              <div className="flex flex-wrap items-center gap-2 mb-3">
-                <Badge tone="sky">Synoptic Dynamics</Badge>
-                <Badge tone="slate">Mesoscale Overview</Badge>
+            {/* The Grid: 1 column on mobile, 2 columns side-by-side on large screens */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              
+              {/* Project 1: Sandy Dashboard */}
+              <div className="flex flex-col rounded-2xl bg-white p-7 shadow-sm ring-1 ring-black/5 dark:bg-slate-950 dark:ring-white/10">
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  <Badge tone="sky">Synoptic Dynamics</Badge>
+                  <Badge tone="slate">Mesoscale Overview</Badge>
+                </div>
+                
+                <h4 className="text-xl font-bold text-slate-900 dark:text-slate-50">
+                  Hurricane Sandy Weather Event Analysis
+                </h4>
+                
+                <p className="mt-3 mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-sm flex-grow">
+                  A comprehensive meteorological investigation mapping Sandy's pressure fields, geopotential heights, 
+                  and rapid structural transition using Matplotlib and Cartopy visualizations alongside vertical sounding profiles.
+                </p>
+                
+                <div className="mt-auto">
+                  <Link
+                    to="/sandy"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold text-white shadow-lg bg-gradient-to-r from-sky-600 to-emerald-500 hover:brightness-110 hover:-translate-y-[1px] transition text-sm"
+                  >
+                    View Event Dashboard
+                    <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 11-1.414-1.414L13.586 10 10.293 6.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </Link>
+                </div>
               </div>
-              
-              <h4 className="text-xl font-bold text-slate-900 dark:text-slate-50">
-                Hurricane Sandy Weather Event Analysis
-              </h4>
-              
-              <p className="mt-3 text-slate-600 dark:text-slate-300 leading-relaxed text-sm">
-                A comprehensive meteorological investigation mapping Sandy's pressure fields, geopotential heights, 
-                and rapid structural transition using Matplotlib and Cartopy visualizations alongside vertical sounding profiles.
-              </p>
-              
-              <div className="mt-6">
-                <Link
-                  to="/sandy"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold text-white shadow-lg bg-gradient-to-r from-sky-600 to-emerald-500 hover:brightness-110 hover:-translate-y-[1px] transition text-sm"
-                >
-                  View Event Dashboard
-                  <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 11-1.414-1.414L13.586 10 10.293 6.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </Link>
+
+              {/* Project 2: Python Code Repository */}
+              <div className="flex flex-col rounded-2xl bg-white p-7 shadow-sm ring-1 ring-black/5 dark:bg-slate-950 dark:ring-white/10">
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  <Badge tone="emerald">Python</Badge>
+                  <Badge tone="slate">Data Visualization</Badge>
+                </div>
+                
+                <h4 className="text-xl font-bold text-slate-900 dark:text-slate-50">
+                  Computer Programming for Meteorologists
+                </h4>
+                
+                <p className="mt-3 mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-sm flex-grow">
+                  Production Python source scripts generating the Sandy radar imagery, soundings, MSLP maps, and 500mb geopotential height charts using MetPy, Cartopy, and PyGrib.
+                </p>
+                
+                <div className="mt-auto">
+                  <Link
+                    to="/sandy-code"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold text-white shadow-lg bg-gradient-to-r from-emerald-500 to-sky-600 hover:brightness-110 hover:-translate-y-[1px] transition text-sm"
+                  >
+                    View Source Code
+                    <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 11-1.414-1.414L13.586 10 10.293 6.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </Link>
+                </div>
               </div>
+
             </div>
           </div>
 
-          {/* --- Centered Contact Section Below Grid --- */}
-          <div className="mt-24 pb-12 flex flex-col items-center justify-center space-y-6">
-            <h2 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-50">
-              Questions? Feel free to reach out!
-            </h2>
-            
-            <p className="text-slate-600 dark:text-slate-300 text-center max-w-lg">
-              I am always interested in connecting with peers and professionals working in synoptic meteorology, risk communication, or societal resilience.
-            </p>
-
-            <PrimaryLink to="/contact" className="px-8 py-3">
-              Contact Me
-              <EnvelopeIcon className="h-5 w-5 ml-2" />
-            </PrimaryLink>
-          </div>
-
-        </motion.div>
-      </Container>
-    </motion.div>
-  );
-}
 function ProjectCard({ proj, onOpen }) {
   return (
     <button
