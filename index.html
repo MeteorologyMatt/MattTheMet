@@ -4,15 +4,14 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Theme initialization (prevents flash) -->
-   <script>
-      (function() {
+    
+    <script>
+      (function () {
         try {
           const stored = localStorage.getItem("theme");
           // Only turn on dark mode if the user specifically chose it before
           const isDark = stored === "dark";
-          
+
           if (isDark) {
             document.documentElement.classList.add("dark");
           } else {
@@ -21,7 +20,7 @@
         } catch (e) {}
       })();
     </script>
-
+    
     <meta
       name="google-site-verification"
       content="fwWvpxB4xb427Pn61xiG3bHJqi75LOjtHhCfdoDdmrs"
@@ -33,6 +32,14 @@
       name="description"
       content="Portfolio of Matthew Lentz, a meteorologist specializing in weather forecasting and data analysis."
     />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
   </head>
 
   <body>
