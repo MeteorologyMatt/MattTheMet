@@ -674,7 +674,7 @@ function useProfile() {
     () => ({
       name: "Matthew Lentz",
       initials: "ML",
-      title: "Undergraduate Meteorology Student",
+      title: "Graduate Teaching Assistant of Atmospheric Science",
       location: "Starkville, MS",
       email: "mwl140@msstate.edu",
       linkedin: "https://www.linkedin.com/in/matthew-lentz-30b2922b0",
