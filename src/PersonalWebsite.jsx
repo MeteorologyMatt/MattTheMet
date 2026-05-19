@@ -765,7 +765,7 @@ function SiteLayout({ children }) {
                 {profile.initials}
               </div>
 
-              <div className="leading-tight">
+              <div className="flex flex-col items-center text-center leading-tight">
                 <p className="text-base font-bold text-slate-900 dark:text-slate-50">
                   {profile.name}
                 </p>
