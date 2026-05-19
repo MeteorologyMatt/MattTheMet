@@ -1110,7 +1110,7 @@ function ResearchPage() {
                     className="inline-flex items-center gap-2 text-xs font-medium text-sky-700 hover:text-sky-800 dark:text-sky-300 dark:hover:text-sky-200 transition"
                   >
                     <DocumentTextIcon className="h-4 w-4" />
-                    Official Publication (Scholars Junction)
+                    Official Publication: Severe Weather Risk Perception
                   </a>
                   <a 
                     href={`${import.meta.env.BASE_URL}Lentz_Research_Poster.pdf`}
