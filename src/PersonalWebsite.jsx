@@ -1113,7 +1113,7 @@ function ResearchPage() {
                     Official Publication (Scholars Junction)
                   </a>
                   <a 
-                    href="/Lentz_Research_Poster.pdf" /* <-- Make sure to update this path to where your poster is stored! */
+                    href={`${import.meta.env.BASE_URL}Lentz_Research_Poster.pdf`}
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-xs font-medium text-sky-700 hover:text-sky-800 dark:text-sky-300 dark:hover:text-sky-200 transition"
