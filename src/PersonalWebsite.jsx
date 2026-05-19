@@ -1097,18 +1097,32 @@ function ResearchPage() {
                 risk communication that reduces confusion and improves action.
               </p>
 
-              {/* Presentation Highlight: Thesis */}
-              <div className="mt-6 border-l-4 border-sky-500 pl-4 py-1 bg-sky-50/50 dark:bg-sky-900/10 rounded-r-lg">
-                <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100">
-                  Upcoming Presentation
+              {/* Research Outputs: Thesis */}
+              <div className="mt-6 border-l-4 border-sky-500 pl-4 py-3 bg-sky-50/50 dark:bg-sky-900/10 rounded-r-lg">
+                <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 mb-2">
+                  Read the Research
                 </h4>
-                <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">
-                  <span className="font-semibold text-sky-700 dark:text-sky-400 block mb-1">
-                    2026 Southeast Severe Storms Symposium
-                  </span>
-                  Presenting findings on risk perception gaps and warning channel trust among diverse student populations.
-                </p>
+                <div className="flex flex-col gap-2.5">
+                  <a 
+                    href="https://scholarsjunction.msstate.edu/honorstheses/212/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-medium text-sky-700 hover:text-sky-800 dark:text-sky-300 dark:hover:text-sky-200 transition"
+                  >
+                    <DocumentTextIcon className="h-4 w-4" />
+                    Official Publication (Scholars Junction)
+                  </a>
+                  <a 
+                    href="/Lentz_Research_Poster.pdf" /* <-- Make sure to update this path to where your poster is stored! */
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-medium text-sky-700 hover:text-sky-800 dark:text-sky-300 dark:hover:text-sky-200 transition"
+                  >
+                    <ArrowDownTrayIcon className="h-4 w-4" />
+                    View Research Poster
+                  </a>
               </div>
+            </div>
 
               {/* Badges - Pushed to bottom */}
               <div className="mt-auto pt-6 flex flex-wrap gap-2">
