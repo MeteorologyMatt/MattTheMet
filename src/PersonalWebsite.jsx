@@ -678,7 +678,7 @@ function useProfile() {
       location: "Starkville, MS",
       email: "mwl140@msstate.edu",
       linkedin: "https://www.linkedin.com/in/matthew-lentz-30b2922b0",
-      resume: `${BASE}Lentz_Matthew_Resume_2025.pdf`,
+      resume: `${BASE}Lentz_Matthew_Resume_2026.pdf`,
       portrait: `${BASE}matthew.jpg`,
       heroImage: `${BASE}weather-hero.jpg`,
     }),
