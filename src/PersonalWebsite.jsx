@@ -1170,11 +1170,11 @@ function ResearchPage() {
 
               {/* Presentation Highlight: SEMBRAR */}
 <div className="mt-6 border-l-4 border-amber-500 pl-4 py-3 bg-amber-50/70 dark:bg-amber-950/20 rounded-r-lg">
-  <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100">
+  <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 mb-2">
     Research Presentation
   </h4>
 
-  <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">
+  <p className="mb-3 text-xs text-slate-600 dark:text-slate-300">
     <span className="font-semibold text-amber-700 dark:text-amber-300 block mb-1">
       MSU Undergraduate Research Symposium (Spring 2026)
     </span>
@@ -1185,24 +1185,10 @@ function ResearchPage() {
     href={`${import.meta.env.BASE_URL}Poster%20SEMBRAR.png`}
     target="_blank"
     rel="noopener noreferrer"
-    className="mt-4 block overflow-hidden rounded-lg ring-1 ring-amber-200/70 transition hover:-translate-y-[1px] hover:ring-amber-300 dark:ring-amber-800/60 dark:hover:ring-amber-600"
-  >
-    <img
-      src={`${import.meta.env.BASE_URL}Poster%20SEMBRAR.png`}
-      alt="SEMBRAR research poster"
-      className="w-full bg-white object-contain"
-      loading="lazy"
-    />
-  </a>
-
-  <a
-    href={`${import.meta.env.BASE_URL}Poster%20SEMBRAR.png`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="mt-3 inline-flex items-center gap-2 text-xs font-medium text-amber-700 hover:text-amber-800 dark:text-amber-300 dark:hover:text-amber-200 transition"
+    className="inline-flex items-center gap-2 text-xs font-medium text-amber-700 hover:text-amber-800 dark:text-amber-300 dark:hover:text-amber-200 transition"
   >
     <ArrowDownTrayIcon className="h-4 w-4" />
-    View Full Poster
+    View SEMBRAR Poster
   </a>
 </div>
               
