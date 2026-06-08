@@ -1174,12 +1174,7 @@ function ResearchPage() {
     Research Presentation
   </h4>
 
-  <p className="mb-3 text-xs text-slate-600 dark:text-slate-300">
-    <span className="font-semibold text-amber-700 dark:text-amber-300 block mb-1">
-      MSU Undergraduate Research Symposium (Spring 2026)
-    </span>
-    Presenting research on the intersection of atmospheric physics and community advocacy within a bilingual framework.
-  </p>
+  
 
   <a
     href={`${import.meta.env.BASE_URL}Poster%20SEMBRAR.png`}
@@ -1188,7 +1183,7 @@ function ResearchPage() {
     className="inline-flex items-center gap-2 text-xs font-medium text-amber-700 hover:text-amber-800 dark:text-amber-300 dark:hover:text-amber-200 transition"
   >
     <ArrowDownTrayIcon className="h-4 w-4" />
-    View SEMBRAR Poster
+    View SEMBRAR Research Poster
   </a>
 </div>
               
