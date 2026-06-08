@@ -11,6 +11,8 @@ import {
   MapPinIcon,
   CalendarIcon,
   SparklesIcon,
+  SunIcon,
+  MoonIcon,
 } from "@heroicons/react/24/outline";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Routes, Route, NavLink, Link, useLocation } from "react-router-dom";
@@ -226,7 +228,7 @@ function SectionHeading({ icon: Icon, title, subtitle, align = "left" }) {
           align === "center" && "justify-center w-full"
         )}
       >
-        {Icon ? <Icon className="h-5 w-5 text-sky-600" /> : null}
+        {Icon ? <Icon className="h-5 w-5 text-violet-600" /> : null}
         <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-50">
           {title}
         </h2>
@@ -247,9 +249,9 @@ function SectionHeading({ icon: Icon, title, subtitle, align = "left" }) {
 
 function Badge({ children, tone = "sky" }) {
   const tones = {
-    sky: "bg-sky-50 text-sky-800 ring-sky-200 dark:bg-sky-950/40 dark:text-sky-200 dark:ring-sky-900/60",
+    sky: "bg-violet-50 text-violet-800 ring-violet-200 dark:bg-violet-950/40 dark:text-violet-200 dark:ring-violet-900/60",
     emerald:
-      "bg-emerald-50 text-emerald-800 ring-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-200 dark:ring-emerald-900/60",
+      "bg-amber-50 text-amber-800 ring-amber-200 dark:bg-amber-950/40 dark:text-amber-200 dark:ring-amber-900/60",
     slate:
       "bg-slate-50 text-slate-700 ring-slate-200 dark:bg-slate-900/40 dark:text-slate-200 dark:ring-slate-700/60",
   };
@@ -276,7 +278,7 @@ function IconButton({ label, onClick, children, className, ...props }) {
         "inline-flex items-center justify-center rounded-md p-2 cursor-pointer",
         "ring-1 ring-black/10 bg-gray-100/70 hover:bg-gray-100",
         "dark:bg-slate-900/50 dark:hover:bg-slate-900 dark:ring-white/10",
-        "transition focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500",
+        "transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#646CFF]",
         className
       )}
       {...props}
@@ -294,9 +296,9 @@ function PrimaryButton({ onClick, children, className, ...props }) {
       className={cx(
         "inline-flex items-center justify-center gap-2",
         "px-5 py-3 rounded-md font-semibold text-white shadow-lg",
-        "bg-gradient-to-r from-sky-600 to-emerald-500",
+        "bg-gradient-to-r from-[#646CFF] via-[#747bff] to-[#f9d342]",
         "hover:brightness-110 hover:-translate-y-[1px] transition",
-        "focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500",
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#646CFF]",
         className
       )}
       {...props}
@@ -313,9 +315,9 @@ function PrimaryLink({ to, children, className, ...props }) {
       className={cx(
         "inline-flex items-center justify-center gap-2",
         "px-5 py-3 rounded-md font-semibold text-white shadow-lg",
-        "bg-gradient-to-r from-sky-600 to-emerald-500",
+        "bg-gradient-to-r from-[#646CFF] via-[#747bff] to-[#f9d342]",
         "hover:brightness-110 hover:-translate-y-[1px] transition",
-        "focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500",
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#646CFF]",
         className
       )}
       {...props}
@@ -333,9 +335,9 @@ function OutlineButton({ onClick, children, className, ...props }) {
       className={cx(
         "inline-flex items-center justify-center gap-2",
         "px-5 py-3 rounded-md font-semibold",
-        "border-2 border-sky-600 text-sky-700",
-        "hover:bg-sky-600 hover:text-white transition",
-        "focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500",
+        "border-2 border-violet-600 text-violet-700",
+        "hover:bg-violet-600 hover:text-white transition",
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#646CFF]",
         className
       )}
       {...props}
@@ -352,9 +354,9 @@ function OutlineLink({ to, children, className, ...props }) {
       className={cx(
         "inline-flex items-center justify-center gap-2",
         "px-5 py-3 rounded-md font-semibold",
-        "border-2 border-sky-600 text-sky-700",
-        "hover:bg-sky-600 hover:text-white transition",
-        "focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500",
+        "border-2 border-violet-600 text-violet-700",
+        "hover:bg-violet-600 hover:text-white transition",
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#646CFF]",
         className
       )}
       {...props}
@@ -372,8 +374,8 @@ function ExternalLink({ href, children, className }) {
       rel="noopener noreferrer"
       className={cx(
         "inline-flex items-center gap-2",
-        "text-sky-700 hover:text-sky-800 dark:text-sky-300 dark:hover:text-sky-200",
-        "underline underline-offset-4 decoration-sky-300/70 hover:decoration-sky-500 transition",
+        "text-violet-700 hover:text-violet-800 dark:text-violet-300 dark:hover:text-violet-200",
+        "underline underline-offset-4 decoration-violet-300/70 hover:decoration-violet-500 transition",
         className
       )}
     >
@@ -392,7 +394,7 @@ function InfoCard({ title, children }) {
         "dark:bg-slate-950 dark:ring-white/10"
       )}
     >
-      <h4 className="font-semibold text-sky-700 dark:text-sky-300">{title}</h4>
+      <h4 className="font-semibold text-violet-700 dark:text-violet-300">{title}</h4>
       <div className="mt-2 text-sm text-slate-600 dark:text-slate-300">{children}</div>
     </div>
   );
@@ -400,14 +402,14 @@ function InfoCard({ title, children }) {
 
 function Callout({ icon: Icon, title, children, tone = "sky" }) {
   const tones = {
-    sky: "bg-sky-50 ring-sky-100 dark:bg-sky-950/40 dark:ring-sky-900/60",
-    emerald: "bg-emerald-50 ring-emerald-100 dark:bg-emerald-950/40 dark:ring-emerald-900/60",
+    sky: "bg-violet-50 ring-violet-100 dark:bg-violet-950/40 dark:ring-violet-900/60",
+    emerald: "bg-amber-50 ring-amber-100 dark:bg-amber-950/40 dark:ring-amber-900/60",
     slate: "bg-slate-50 ring-slate-100 dark:bg-slate-900/40 dark:ring-white/10",
   };
 
   const iconTones = {
-    sky: "text-sky-700 dark:text-sky-200",
-    emerald: "text-emerald-700 dark:text-emerald-200",
+    sky: "text-violet-700 dark:text-violet-200",
+    emerald: "text-amber-700 dark:text-amber-200",
     slate: "text-slate-700 dark:text-slate-200",
   };
 
@@ -508,7 +510,7 @@ function Modal({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2 rounded-md border-2 border-sky-600 text-sky-700 hover:bg-sky-600 hover:text-white transition"
+                  className="px-4 py-2 rounded-md border-2 border-violet-600 text-violet-700 hover:bg-violet-600 hover:text-white transition"
                 >
                   Close
                 </button>
@@ -588,7 +590,7 @@ function MobileDrawer({ open, onClose, navItems }) {
                         "text-slate-700 hover:bg-slate-50 hover:text-slate-900",
                         "dark:text-slate-200 dark:hover:bg-slate-900/60",
                         isActive &&
-                          "bg-sky-50 text-sky-800 ring-1 ring-sky-200 dark:bg-sky-950/40 dark:text-sky-200 dark:ring-sky-900/60"
+                          "bg-violet-50 text-violet-800 ring-1 ring-violet-200 dark:bg-violet-950/40 dark:text-violet-200 dark:ring-violet-900/60"
                       )
                     }
                   >
@@ -681,6 +683,7 @@ function useProfile() {
       resume: `${BASE}Lentz_Matthew_Resume_2026.pdf`,
       portrait: `${BASE}matthew.jpg`,
       heroImage: `${BASE}weather-hero.jpg`,
+      topographyImage: `${BASE}topography-bg.jpg`,
     }),
     [BASE]
   );
@@ -699,6 +702,50 @@ function useNavItems() {
   );
 }
 
+function getInitialTheme() {
+  if (typeof window === "undefined") return "dark";
+
+  const saved = window.localStorage.getItem("preferred-theme");
+  if (saved === "light" || saved === "dark") return saved;
+
+  return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+}
+
+function useThemePreference() {
+  const [theme, setTheme] = useState(getInitialTheme);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.toggle("dark", theme === "dark");
+    root.style.colorScheme = theme;
+    window.localStorage.setItem("preferred-theme", theme);
+  }, [theme]);
+
+  return [theme, setTheme];
+}
+
+function ThemeToggle({ theme, onToggle }) {
+  const isDark = theme === "dark";
+  const Icon = isDark ? SunIcon : MoonIcon;
+
+  return (
+    <button
+      type="button"
+      onClick={onToggle}
+      aria-label={isDark ? "Switch to light background" : "Switch to dark background"}
+      className={cx(
+        "inline-flex items-center justify-center gap-2 rounded-md px-3 py-2",
+        "text-sm font-semibold shadow-sm ring-1 ring-black/10 backdrop-blur transition",
+        "bg-white/80 text-slate-800 hover:bg-white",
+        "dark:bg-[#242424]/80 dark:text-slate-100 dark:ring-white/10 dark:hover:bg-[#2f2f2f]",
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#646CFF]"
+      )}
+    >
+      <Icon className="h-5 w-5" />
+      <span className="hidden sm:inline">{isDark ? "Light" : "Dark"}</span>
+    </button>
+  );
+}
 /* -------------------------------------------------------------------------- */
 /* Layout                                                                      */
 /* -------------------------------------------------------------------------- */
@@ -706,40 +753,44 @@ function useNavItems() {
 function SiteLayout({ children }) {
   const profile = useProfile();
   const navItems = useNavItems();
+  const [theme, setTheme] = useThemePreference();
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useOnEscape(() => setMobileOpen(false), mobileOpen);
 
+  const isDark = theme === "dark";
+
   return (
     <div
       className={cx(
-        "relative min-h-screen overflow-hidden",
-        "bg-gradient-to-b from-gray-100 via-gray-50 to-gray-100",
-        "text-slate-900 dark:text-slate-50",
-        "dark:from-slate-950 dark:via-slate-950 dark:to-slate-950"
+        "relative min-h-screen overflow-hidden transition-colors duration-300",
+        "bg-slate-50 text-slate-900",
+        "dark:bg-[#1a1a1a] dark:text-slate-50"
       )}
     >
       <SkipToContentButton />
 
-      {/* Decorative hero background image */}
+      {/* Site-wide topography background */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-[-6rem] h-[28rem] opacity-30 dark:opacity-20"
+        className="pointer-events-none fixed inset-0 z-0 bg-cover bg-center bg-repeat"
         style={{
-          backgroundImage: `url(${profile.heroImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          maskImage:
-            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.25), rgba(0,0,0,0))",
-          WebkitMaskImage:
-            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.25), rgba(0,0,0,0))",
+          backgroundImage: `url(${profile.topographyImage})`,
+          backgroundSize: "min(1800px, 150vw) auto",
+          opacity: isDark ? 0.22 : 0.12,
+          filter: isDark ? "saturate(0.85)" : "invert(1) contrast(1.12)",
         }}
       />
-
-      {/* Decorative blobs */}
-      <div className="absolute -top-40 -left-40 w-96 h-96 bg-gray-300 rounded-full mix-blend-multiply blur-3xl opacity-25 animate-pulse dark:opacity-10" />
-      <div className="absolute top-1/2 -right-40 w-96 h-96 bg-gray-400 rounded-full mix-blend-multiply blur-3xl opacity-25 animate-pulse dark:opacity-10" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0"
+        style={{
+          background: isDark
+            ? "radial-gradient(circle at 15% 8%, rgba(100,108,255,0.24), transparent 30%), radial-gradient(circle at 84% 14%, rgba(249,211,66,0.12), transparent 28%), linear-gradient(135deg, rgba(26,26,26,0.96), rgba(36,36,36,0.91))"
+            : "radial-gradient(circle at 15% 8%, rgba(100,108,255,0.16), transparent 30%), radial-gradient(circle at 84% 14%, rgba(249,211,66,0.22), transparent 28%), linear-gradient(135deg, rgba(248,250,252,0.94), rgba(255,255,255,0.88))",
+        }}
+      />
 
       <MobileDrawer
         open={mobileOpen}
@@ -748,7 +799,7 @@ function SiteLayout({ children }) {
       />
 
       {/* Top bar / nav */}
-      <header className="sticky top-0 z-40 backdrop-blur bg-gray-100/60 ring-1 ring-black/5 dark:bg-slate-950/60 dark:ring-white/10">
+      <header className="sticky top-0 z-40 border-b border-black/5 bg-white/72 backdrop-blur-xl dark:border-white/10 dark:bg-[#1a1a1a]/72">
         <Container className="px-6 lg:px-12">
           <div className="flex items-center justify-between py-4">
             {/* Brand */}
@@ -756,7 +807,7 @@ function SiteLayout({ children }) {
               <div
                 className={cx(
                   "w-12 h-12 rounded-full",
-                  "bg-gradient-to-br from-sky-500 via-cyan-500 to-emerald-500",
+                  "bg-gradient-to-br from-[#646CFF] via-[#747bff] to-[#f9d342]",
                   "flex items-center justify-center text-white font-extrabold",
                   "shadow-sm ring-1 ring-black/10",
                   "group-hover:scale-105 transition"
@@ -784,10 +835,10 @@ function SiteLayout({ children }) {
                   className={({ isActive }) =>
                     cx(
                       "inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition",
-                      "text-slate-700 hover:text-slate-900 hover:bg-slate-50",
-                      "dark:text-slate-200 dark:hover:text-slate-50 dark:hover:bg-slate-900/60",
+                      "text-slate-700 hover:bg-white/70 hover:text-slate-950",
+                      "dark:text-slate-200 dark:hover:bg-white/10 dark:hover:text-white",
                       isActive &&
-                        "bg-sky-50 text-sky-800 ring-1 ring-sky-200 dark:bg-sky-950/40 dark:text-sky-200 dark:ring-sky-900/60"
+                        "bg-[#646CFF]/10 text-[#535bf2] ring-1 ring-[#646CFF]/25 dark:bg-[#646CFF]/18 dark:text-[#c7caff] dark:ring-[#646CFF]/35"
                     )
                   }
                 >
@@ -799,6 +850,11 @@ function SiteLayout({ children }) {
 
             {/* Right actions */}
             <div className="flex items-center gap-2">
+              <ThemeToggle
+                theme={theme}
+                onToggle={() => setTheme(isDark ? "light" : "dark")}
+              />
+
               <IconButton
                 label="Facebook"
                 onClick={() => window.open('https://www.facebook.com/matthew.lentz.92798', '_blank')}
@@ -829,12 +885,12 @@ function SiteLayout({ children }) {
       </header>
 
       {/* Main content */}
-      <main id="main" className="outline-none">
+      <main id="main" className="relative z-10 outline-none">
         {children}
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-black/5 dark:border-white/10">
+      <footer className="relative z-10 border-t border-black/5 bg-white/40 backdrop-blur-xl dark:border-white/10 dark:bg-[#1a1a1a]/45">
         <Container className="px-6 lg:px-12 py-10">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
@@ -846,19 +902,19 @@ function SiteLayout({ children }) {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <NavLink to="/" className="text-sm font-semibold text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-slate-50">
+              <NavLink to="/" className="text-sm font-semibold text-slate-700 hover:text-[#535bf2] dark:text-slate-200 dark:hover:text-[#c7caff]">
                 Home
               </NavLink>
-              <NavLink to="/research" className="text-sm font-semibold text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-slate-50">
+              <NavLink to="/research" className="text-sm font-semibold text-slate-700 hover:text-[#535bf2] dark:text-slate-200 dark:hover:text-[#c7caff]">
                 Research
               </NavLink>
-              <NavLink to="/experience" className="text-sm font-semibold text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-slate-50">
+              <NavLink to="/experience" className="text-sm font-semibold text-slate-700 hover:text-[#535bf2] dark:text-slate-200 dark:hover:text-[#c7caff]">
                 Experience
               </NavLink>
-              <NavLink to="/survey" className="text-sm font-semibold text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-slate-50">
+              <NavLink to="/survey" className="text-sm font-semibold text-slate-700 hover:text-[#535bf2] dark:text-slate-200 dark:hover:text-[#c7caff]">
                 Survey
               </NavLink>
-              <NavLink to="/contact" className="text-sm font-semibold text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-slate-50">
+              <NavLink to="/contact" className="text-sm font-semibold text-slate-700 hover:text-[#535bf2] dark:text-slate-200 dark:hover:text-[#c7caff]">
                 Contact
               </NavLink>
             </div>
@@ -870,7 +926,6 @@ function SiteLayout({ children }) {
     </div>
   );
 }
-
 /* -------------------------------------------------------------------------- */
 /* Pages                                                                       */
 /* -------------------------------------------------------------------------- */
@@ -921,13 +976,13 @@ function HomePage() {
             </div>
 
             <h1 className="mt-5 text-4xl sm:text-5xl font-extrabold leading-tight">
-              <span className="bg-gradient-to-r from-sky-600 via-cyan-500 to-emerald-600 bg-clip-text text-transparent">
-                Hello, I’m {profile.name}.
+              <span className="bg-gradient-to-r from-violet-600 via-indigo-500 to-amber-600 bg-clip-text text-transparent">
+                Hello, I'm {profile.name}.
               </span>
             </h1>
 
             <p className="mt-5 text-lg leading-relaxed text-slate-700 dark:text-slate-200">
-              I’m a first-year master's student studying meteorology at Mississippi State University, focusing on synoptic meteorology, weather communication, and AI/ML modeling techniques. I love using research to help people prepare for
+              I'm a first-year master's student studying meteorology at Mississippi State University, focusing on synoptic meteorology, weather communication, and AI/ML modeling techniques. I love using research to help people prepare for
               severe weather and the ever-evolving state of the atmosphere.
             </p>
 
@@ -938,13 +993,13 @@ function HomePage() {
                 className={cx(
                   "inline-flex items-center justify-center gap-2",
                   "px-5 py-3 rounded-md font-semibold text-white shadow-lg",
-                  "bg-gradient-to-r from-sky-600 to-emerald-500",
+                  "bg-gradient-to-r from-[#646CFF] via-[#747bff] to-[#f9d342]",
                   "hover:brightness-110 hover:-translate-y-[1px] transition",
-                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#646CFF]"
                 )}
               >
                 <ArrowDownTrayIcon className="h-5 w-5" />
-                Download Résumé
+                Download Resume
               </a>
 
               <OutlineLink to="/research">
@@ -980,7 +1035,7 @@ function HomePage() {
                 "relative w-56 h-56 sm:w-64 sm:h-64",
                 "rounded-3xl overflow-hidden shadow-xl",
                 "border-4 border-transparent",
-                "bg-gradient-to-tr from-sky-500 to-emerald-500 p-[2px]"
+                "bg-gradient-to-tr from-violet-500 to-amber-500 p-[2px]"
               )}
             >
               <img
@@ -1019,22 +1074,22 @@ function HomePage() {
 
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
             <InfoCard title="Education">
-              <div className="mb-4">•   B.S. in Geosciences (Professional Meteorology)</div>
-              <div className="mb-4">•   Minors: Math & Sociology</div>
-              <div>•   Mississippi State University (August 2022 - May 2026)</div>
+              <div className="mb-4">-   B.S. in Geosciences (Professional Meteorology)</div>
+              <div className="mb-4">-   Minors: Math & Sociology</div>
+              <div>-   Mississippi State University (August 2022 - May 2026)</div>
             </InfoCard>
               <InfoCard title="Skills">
-              <div className="mb-4">  •   Python</div>
-              <div className="mb-4">  •   ArcGIS Pro</div>
-              <div className="mb-4">  •   SPSS (statistical analysis software)</div>
-              <div className="mb-4">  •   Data analysis</div>
-              <div className="mb-4">  •   Predictive modeling</div>
-              <div className="mb-4">  •   Research communication</div>
-              <div>  •   Visualization</div>
+              <div className="mb-4">  -   Python</div>
+              <div className="mb-4">  -   ArcGIS Pro</div>
+              <div className="mb-4">  -   SPSS (statistical analysis software)</div>
+              <div className="mb-4">  -   Data analysis</div>
+              <div className="mb-4">  -   Predictive modeling</div>
+              <div className="mb-4">  -   Research communication</div>
+              <div>  -   Visualization</div>
               </InfoCard>
               <InfoCard title="Certifications">
-                <div className="mb-4">  •   CITI Program Certified (Social & Behavioral Research)</div>
-              <div>  •   NWS Skywarn Trained Storm Spotter</div>
+                <div className="mb-4">  -   CITI Program Certified (Social & Behavioral Research)</div>
+              <div>  -   NWS Skywarn Trained Storm Spotter</div>
               </InfoCard>
             </div>
 
@@ -1087,8 +1142,8 @@ function ResearchPage() {
               </h3>
 
               <p className="mt-4 text-slate-700 dark:text-slate-200 leading-relaxed">
-                I’m investigating how international students at Mississippi State University perceive severe weather and
-                its risks. I’m focusing on how prior weather experience, language and cultural context, and warning
+                I'm investigating how international students at Mississippi State University perceive severe weather and
+                its risks. I'm focusing on how prior weather experience, language and cultural context, and warning
                 comprehension shape decision-making, plus which channels (sirens, WEA, social media) students trust.
               </p>
 
@@ -1098,7 +1153,7 @@ function ResearchPage() {
               </p>
 
               {/* Research Outputs: Thesis */}
-              <div className="mt-6 border-l-4 border-sky-500 pl-4 py-3 bg-sky-50/50 dark:bg-sky-900/10 rounded-r-lg">
+              <div className="mt-6 border-l-4 border-violet-500 pl-4 py-3 bg-violet-50/50 dark:bg-violet-900/10 rounded-r-lg">
                 <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 mb-2">
                   Read the Research
                 </h4>
@@ -1107,7 +1162,7 @@ function ResearchPage() {
                     href="https://scholarsjunction.msstate.edu/honorstheses/212/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-medium text-sky-700 hover:text-sky-800 dark:text-sky-300 dark:hover:text-sky-200 transition"
+                    className="inline-flex items-center gap-2 text-xs font-medium text-violet-700 hover:text-violet-800 dark:text-violet-300 dark:hover:text-violet-200 transition"
                   >
                     <DocumentTextIcon className="h-4 w-4" />
                     Official Publication: Severe Weather Risk Perception
@@ -1116,7 +1171,7 @@ function ResearchPage() {
                     href={`${import.meta.env.BASE_URL}Lentz_Research_Poster.pdf`}
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-medium text-sky-700 hover:text-sky-800 dark:text-sky-300 dark:hover:text-sky-200 transition"
+                    className="inline-flex items-center gap-2 text-xs font-medium text-violet-700 hover:text-violet-800 dark:text-violet-300 dark:hover:text-violet-200 transition"
                   >
                     <ArrowDownTrayIcon className="h-4 w-4" />
                     View Research Poster
@@ -1134,7 +1189,7 @@ function ResearchPage() {
 
             {/* --- RIGHT COLUMN: SEMBRAR --- */}
             <div className="h-full flex flex-col rounded-2xl bg-white p-7 shadow-sm ring-1 ring-black/5 dark:bg-slate-950 dark:ring-white/10">
-              <h3 className="text-xl font-bold text-emerald-900 dark:text-emerald-400">
+              <h3 className="text-xl font-bold text-amber-900 dark:text-amber-400">
                 Current Role: SEMBRAR Mississippi & Florida
               </h3>
               
@@ -1150,12 +1205,12 @@ function ResearchPage() {
               </p>
 
               {/* Presentation Highlight: SEMBRAR */}
-              <div className="mt-6 border-l-4 border-emerald-500 pl-4 py-1 bg-emerald-50/50 dark:bg-emerald-900/10 rounded-r-lg">
+              <div className="mt-6 border-l-4 border-amber-500 pl-4 py-1 bg-amber-50/50 dark:bg-amber-900/10 rounded-r-lg">
                 <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100">
                   Upcoming Presentation
                 </h4>
                 <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">
-                  <span className="font-semibold text-emerald-700 dark:text-emerald-400 block mb-1">
+                  <span className="font-semibold text-amber-700 dark:text-amber-400 block mb-1">
                     MSU Undergraduate Research Symposium (Spring 2026)
                   </span>
                   Presenting research on the intersection of atmospheric physics and community advocacy within a bilingual framework.
@@ -1199,7 +1254,7 @@ function ResearchPage() {
                 <div className="mt-auto">
                   <Link
                     to="/sandy"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold text-white shadow-lg bg-gradient-to-r from-sky-600 to-emerald-500 hover:brightness-110 hover:-translate-y-[1px] transition text-sm"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold text-white shadow-lg bg-gradient-to-r from-[#646CFF] via-[#747bff] to-[#f9d342] hover:brightness-110 hover:-translate-y-[1px] transition text-sm"
                   >
                     View Event Dashboard
                     <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -1227,7 +1282,7 @@ function ResearchPage() {
                 <div className="mt-auto">
                   <Link
                     to="/sandy-code"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold text-white shadow-lg bg-gradient-to-r from-emerald-500 to-sky-600 hover:brightness-110 hover:-translate-y-[1px] transition text-sm"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold text-white shadow-lg bg-gradient-to-r from-amber-500 to-violet-600 hover:brightness-110 hover:-translate-y-[1px] transition text-sm"
                   >
                     View Source Code
                     <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -1271,14 +1326,14 @@ function ProjectCard({ proj, onOpen }) {
         "group text-left w-full",
         "rounded-xl bg-white p-6 shadow-sm ring-1 ring-black/5",
         "hover:shadow-lg hover:-translate-y-[1px] transition",
-        "focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-600",
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#646CFF]",
         "dark:bg-slate-950 dark:ring-white/10"
       )}
       aria-haspopup="dialog"
     >
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h4 className="font-semibold text-sky-700 group-hover:text-sky-800 dark:text-sky-300 dark:group-hover:text-sky-200">
+          <h4 className="font-semibold text-violet-700 group-hover:text-violet-800 dark:text-violet-300 dark:group-hover:text-violet-200">
             {proj.title}
           </h4>
           <p className="mt-1 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
@@ -1293,7 +1348,7 @@ function ProjectCard({ proj, onOpen }) {
 
       <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{proj.short}</p>
 
-      <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-sky-700 dark:text-sky-300">
+      <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-violet-700 dark:text-violet-300">
         Read more
         <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
           <path
@@ -1316,7 +1371,7 @@ function ExperiencePage() {
       {
         id: "usda",
         title: "USDA Agricultural Research Service: Climate & Ag",
-        subtitle: "Undergraduate Researcher • Fall 2024 – Spring 2025 • Starkville, MS",
+        subtitle: "Undergraduate Researcher - Fall 2024 - Spring 2025 - Starkville, MS",
         short:
           "Modeled extreme rainfall & temperature trends (RCP 4.5 & 8.5) to assess climate impacts on agriculture.",
         details: [
@@ -1329,7 +1384,7 @@ function ExperiencePage() {
       {
         id: "uca",
         title: "University of Central Arkansas: Wildfire Climatology",
-        subtitle: "Undergraduate Research Assistant • Summer 2025 • Remote",
+        subtitle: "Undergraduate Research Assistant - Summer 2025 - Remote",
         short:
           "Spatial analysis of wildfire causes & patterns in the Ozark and Ouachita Mountains using ArcGIS Pro & Python.",
         details: [
@@ -1342,7 +1397,7 @@ function ExperiencePage() {
       {
         id: "nws",
         title: "National Weather Service at Little Rock, AR",
-        subtitle: "Intern • Summer 2024",
+        subtitle: "Intern - Summer 2024",
         short: "Hands-on forecast operations, balloon launches, storm surveys, and public communication.",
         details: [
           "Assisted forecasters in AWIPS; practiced real-time decision support and messaging.",
@@ -1418,7 +1473,7 @@ function ExperiencePage() {
             <ul className="mt-5 space-y-3 text-slate-700 dark:text-slate-200">
               {activeProject.details.map((d, i) => (
                 <li key={i} className="flex gap-3">
-                  <span className="mt-[9px] h-1.5 w-1.5 rounded-full bg-sky-500 shrink-0" />
+                  <span className="mt-[9px] h-1.5 w-1.5 rounded-full bg-violet-500 shrink-0" />
                   <span className="leading-relaxed">{d}</span>
                 </li>
               ))}
@@ -1440,8 +1495,8 @@ function SurveyPage() {
           <section
             className={cx(
               "rounded-2xl p-8 shadow-sm ring-1 ring-black/5",
-              "bg-emerald-50/70 backdrop-blur",
-              "dark:bg-emerald-950/25 dark:ring-emerald-900/50"
+              "bg-amber-50/70 backdrop-blur",
+              "dark:bg-amber-950/25 dark:ring-amber-900/50"
             )}
           >
             <SectionHeading
@@ -1453,12 +1508,12 @@ function SurveyPage() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
               <div className="lg:col-span-2">
                 {/* Status Banner */}
-                <div className="mb-6 rounded-lg border border-emerald-200 bg-emerald-100/50 p-4 dark:border-emerald-800 dark:bg-emerald-900/20">
-                  <p className="flex items-center gap-2 text-lg font-semibold text-emerald-800 dark:text-emerald-200">
-                    <span>🎉</span>
+                <div className="mb-6 rounded-lg border border-amber-200 bg-amber-100/50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
+                  <p className="flex items-center gap-2 text-lg font-semibold text-amber-800 dark:text-amber-200">
+                    <span>Success:</span>
                     Thanks to the over 200 international student respondents!
                   </p>
-                  <p className="mt-1 text-emerald-700 dark:text-emerald-300">
+                  <p className="mt-1 text-amber-700 dark:text-amber-300">
                     The survey is currently complete. Raffle winners will be announced in{" "}
                     <span className="font-bold">January</span>.
                   </p>
@@ -1500,15 +1555,15 @@ function SurveyPage() {
                 <h4 className="font-semibold text-slate-900 dark:text-slate-50">What the survey helps with</h4>
                 <ul className="mt-3 space-y-2 text-sm text-slate-700 dark:text-slate-200">
                   <li className="flex gap-2">
-                    <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+                    <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />
                     Identify trusted warning channels
                   </li>
                   <li className="flex gap-2">
-                    <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+                    <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />
                     Reduce confusion during severe weather
                   </li>
                   <li className="flex gap-2">
-                    <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+                    <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />
                     Improve culturally responsive communication
                   </li>
                 </ul>
@@ -1548,15 +1603,15 @@ function ContactPage() {
                 />
 
                 <p className="text-lg text-slate-700 dark:text-slate-200 leading-relaxed">
-                  Whether you’re interested in collaborating on research, discussing internship openings, 
-                  or simply want to chat about a shared love for the weather, I’d love to hear from you. 
-                  Email is the best way to reach me, and I’m also active on LinkedIn.
+                  Whether you're interested in collaborating on research, discussing internship openings, 
+                  or simply want to chat about a shared love for the weather, I'd love to hear from you. 
+                  Email is the best way to reach me, and I'm also active on LinkedIn.
                 </p>
 
                 <div className="pt-2 flex flex-col sm:flex-row gap-4">
                   <a
                     href={`mailto:${profile.email}`}
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold border-2 border-sky-600 text-sky-700 hover:bg-sky-600 hover:text-white transition shadow-sm"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold border-2 border-violet-600 text-violet-700 hover:bg-violet-600 hover:text-white transition shadow-sm"
                   >
                     {profile.email}
                     <EnvelopeIcon className="h-5 w-5" />
@@ -1566,7 +1621,7 @@ function ContactPage() {
                     href={profile.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold border-2 border-sky-600 text-sky-700 hover:bg-sky-600 hover:text-white transition shadow-sm"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold border-2 border-violet-600 text-violet-700 hover:bg-violet-600 hover:text-white transition shadow-sm"
                   >
                     LinkedIn
                     <LinkIcon className="h-5 w-5" />
@@ -1574,32 +1629,32 @@ function ContactPage() {
 
                   <a
                     href={profile.resume}
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold text-white shadow-lg bg-gradient-to-r from-sky-600 to-emerald-500 hover:brightness-110 hover:-translate-y-[1px] transition"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md font-semibold text-white shadow-lg bg-gradient-to-r from-[#646CFF] via-[#747bff] to-[#f9d342] hover:brightness-110 hover:-translate-y-[1px] transition"
                   >
-                    View Résumé
+                    View Resume
                     <ArrowDownTrayIcon className="h-5 w-5" />
                   </a>
                 </div>
               </div>
 
               {/* RIGHT COLUMN: Sidebar (Now Aligned to Top) */}
-              <div className="rounded-xl bg-sky-50 p-6 ring-1 ring-sky-100 dark:bg-sky-950/40 dark:ring-sky-900/60 shadow-sm">
-                <h4 className="font-bold text-sky-900 dark:text-sky-200 uppercase tracking-wide text-xs">
+              <div className="rounded-xl bg-violet-50 p-6 ring-1 ring-violet-100 dark:bg-violet-950/40 dark:ring-violet-900/60 shadow-sm">
+                <h4 className="font-bold text-violet-900 dark:text-violet-200 uppercase tracking-wide text-xs">
                   Quick details
                 </h4>
                 
                 <div className="mt-4 space-y-3 text-sm text-slate-700 dark:text-slate-200">
                   <div className="flex items-center gap-2">
-                    <MapPinIcon className="h-4 w-4 text-sky-700 dark:text-sky-400" />
+                    <MapPinIcon className="h-4 w-4 text-violet-700 dark:text-violet-400" />
                     Starkville, MS
                   </div>
                   <div className="flex items-center gap-2">
-                    <CalendarIcon className="h-4 w-4 text-sky-700 dark:text-sky-400" />
+                    <CalendarIcon className="h-4 w-4 text-violet-700 dark:text-violet-400" />
                     Graduation: May 2026
                   </div>
                   
-                  <div className="pt-4 border-t border-sky-200 dark:border-sky-800">
-                    <div className="flex items-center gap-2 text-sky-800 dark:text-sky-300 font-bold uppercase text-[10px] tracking-widest mb-3">
+                  <div className="pt-4 border-t border-violet-200 dark:border-violet-800">
+                    <div className="flex items-center gap-2 text-violet-800 dark:text-violet-300 font-bold uppercase text-[10px] tracking-widest mb-3">
                       <SparklesIcon className="h-4 w-4" />
                       Interests
                     </div>
@@ -1614,7 +1669,7 @@ function ContactPage() {
                       ].map((interest) => (
                         <span 
                           key={interest}
-                          className="px-2.5 py-1 rounded-md text-[13px] font-medium bg-white/80 text-sky-900 ring-1 ring-sky-200 dark:bg-sky-900/40 dark:text-sky-100 dark:ring-sky-700/50"
+                          className="px-2.5 py-1 rounded-md text-[13px] font-medium bg-white/80 text-violet-900 ring-1 ring-violet-200 dark:bg-violet-900/40 dark:text-violet-100 dark:ring-violet-700/50"
                         >
                           {interest}
                         </span>
@@ -1641,7 +1696,7 @@ function NotFoundPage() {
         <div className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-black/5 dark:bg-slate-950 dark:ring-white/10">
           <h1 className="text-3xl font-extrabold">Page not found</h1>
           <p className="mt-3 text-slate-700 dark:text-slate-200">
-            That route doesn’t exist. Use the menu to navigate.
+            That route doesn't exist. Use the menu to navigate.
           </p>
           <div className="mt-6">
             <PrimaryLink to="/">Go Home</PrimaryLink>
@@ -1676,3 +1731,4 @@ export default function PersonalWebsite() {
     </SiteLayout>
   );
 }
+
