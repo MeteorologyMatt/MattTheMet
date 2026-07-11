@@ -712,14 +712,24 @@ function useNavItems() {
 /* -------------------------------------------------------------------------- */
 
 function SiteLayout({ children }) {
-  const profile = useProfile();
-  const navItems = useNavItems();
+const profile = useProfile();
+const navItems = useNavItems();
 
-  const [mobileOpen, setMobileOpen] = useState(false);
+const [mobileOpen, setMobileOpen] = useState(false);
 
-  useOnEscape(() => setMobileOpen(false), mobileOpen);
+const [isDark, setIsDark] = useState(() => {
+  const saved = localStorage.getItem("theme");
 
- useEffect(() => {
+  if (saved !== null) {
+    return saved === "dark";
+  }
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+});
+
+useOnEscape(() => setMobileOpen(false), mobileOpen);
+
+useEffect(() => {
   if (isDark) {
     document.documentElement.classList.add("dark");
     document.documentElement.style.colorScheme = "dark";
