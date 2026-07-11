@@ -724,7 +724,7 @@ function SiteLayout({ children }) {
     document.documentElement.style.colorScheme = "dark";
   }, []);
 
-  const isDark = true;
+  const isDark = false;
 
   return (
     <div
