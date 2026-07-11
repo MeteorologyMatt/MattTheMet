@@ -226,15 +226,20 @@ function SectionHeading({ icon: Icon, title, subtitle, align = "left" }) {
           align === "center" && "justify-center w-full"
         )}
       >
-        {Icon ? <Icon className="h-5 w-5 text-sky-600 dark:text-sky-300" /> : null}
-        <h2 className="text-2xl sm:text-3xl font-bold text-slate-950 dark:text-white">
+        {Icon ? (
+          <Icon className="h-5 w-5 text-sky-500 dark:text-sky-300" />
+        ) : null}
+
+        <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
           {title}
         </h2>
       </div>
+
       {subtitle ? (
         <p
           className={cx(
-            "mt-3 max-w-3xl text-base leading-7 text-slate-600 dark:text-slate-300",
+            "mt-3 max-w-3xl text-base leading-7",
+            "text-slate-700 dark:text-white/85",
             align === "center" && "mx-auto max-w-2xl"
           )}
         >
