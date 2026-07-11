@@ -226,20 +226,15 @@ function SectionHeading({ icon: Icon, title, subtitle, align = "left" }) {
           align === "center" && "justify-center w-full"
         )}
       >
-        {Icon ? (
-          <Icon className="h-5 w-5 text-sky-500 dark:text-sky-300" />
-        ) : null}
-
-        <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
+        {Icon ? <Icon className="h-5 w-5 text-sky-600 dark:text-sky-300" /> : null}
+        <h2 className="text-2xl sm:text-3xl font-bold text-slate-950 dark:text-white">
           {title}
         </h2>
       </div>
-
       {subtitle ? (
         <p
           className={cx(
-            "mt-3 max-w-3xl text-base leading-7",
-            "text-slate-700 dark:text-white/85",
+            "mt-3 max-w-3xl text-base leading-7 text-slate-600 dark:text-slate-300",
             align === "center" && "mx-auto max-w-2xl"
           )}
         >
@@ -397,7 +392,7 @@ function InfoCard({ title, children }) {
       className={cx(
         "rounded-lg bg-white/90 p-5 shadow-sm shadow-slate-200/60 ring-1 ring-slate-200/80 backdrop-blur",
         "hover:-translate-y-[1px] hover:shadow-lg hover:shadow-slate-200/70 transition",
-        "dark:bg-slate-900/95 dark:shadow-none dark:ring-white/10"
+        "dark:bg-slate-950/80 dark:shadow-none dark:ring-white/10"
       )}
     >
       <h4 className="font-semibold text-sky-800 dark:text-sky-300">{title}</h4>
@@ -1027,7 +1022,7 @@ function HomePage() {
             className={cx(
               "mb-14 rounded-lg p-8 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80",
               "bg-white/88 backdrop-blur",
-              "dark:bg-slate-900/95 dark:shadow-none dark:ring-white/10"
+              "dark:bg-slate-950/72 dark:shadow-none dark:ring-white/10"
             )}
           >
             <SectionHeading
@@ -1093,23 +1088,19 @@ function ResearchPage() {
 
   return (
     <motion.div {...page}>
-      <Container className="px-6 lg:px-12 py-12 text-white">
+      <Container className="px-6 lg:px-12 py-12">
         <motion.div {...fadeInUp}>
-<div className="mb-10">
-  <SectionHeading
-    icon={DocumentTextIcon}
-    title="Research"
-    subtitle="Honors thesis focus and current research direction."
-  />
-
-  <div className="mt-4 h-px bg-slate-300 dark:bg-white/20" />
-</div>
+          <SectionHeading
+            icon={DocumentTextIcon}
+            title="Research"
+            subtitle="Honors thesis focus and current research direction."
+          />
 
           {/* Grid Layout: 2 Columns (50/50 split) for Research Cards Only */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             
             {/* --- LEFT COLUMN: Honors Thesis --- */}
-            <div className="h-full flex flex-col rounded-lg bg-white/90 p-7 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80 backdrop-blur dark:bg-slate-900/95 dark:shadow-none dark:ring-white/10">
+            <div className="h-full flex flex-col rounded-lg bg-white/90 p-7 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80 backdrop-blur dark:bg-slate-950/78 dark:shadow-none dark:ring-white/10">
               <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50">
                 Honors Thesis: Severe Weather Risk Perception
               </h3>
@@ -1161,7 +1152,7 @@ function ResearchPage() {
             </div>
 
             {/* --- RIGHT COLUMN: SEMBRAR --- */}
-            <div className="h-full flex flex-col rounded-lg bg-white/90 p-7 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80 backdrop-blur dark:bg-slate-900/95 dark:shadow-none dark:ring-white/10">
+            <div className="h-full flex flex-col rounded-lg bg-white/90 p-7 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80 backdrop-blur dark:bg-slate-950/78 dark:shadow-none dark:ring-white/10">
               <h3 className="text-xl font-bold text-slate-950 dark:text-white">
                 Current Role: SEMBRAR Mississippi & Florida
               </h3>
@@ -1215,7 +1206,7 @@ function ResearchPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               
               {/* Project 1: Sandy Dashboard */}
-              <div className="flex flex-col rounded-lg bg-white/90 p-7 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80 backdrop-blur dark:bg-slate-900/95 dark:shadow-none dark:ring-white/10">
+              <div className="flex flex-col rounded-lg bg-white/90 p-7 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80 backdrop-blur dark:bg-slate-950/78 dark:shadow-none dark:ring-white/10">
                 <div className="flex flex-wrap items-center gap-2 mb-3">
                   <Badge tone="sky">Synoptic Dynamics</Badge>
                   <Badge tone="slate">Mesoscale Overview</Badge>
@@ -1244,7 +1235,7 @@ function ResearchPage() {
               </div>
 
               {/* Project 2: Python Code Repository */}
-              <div className="flex flex-col rounded-lg bg-white/90 p-7 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80 backdrop-blur dark:bg-slate-900/95 dark:shadow-none dark:ring-white/10">
+              <div className="flex flex-col rounded-lg bg-white/90 p-7 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80 backdrop-blur dark:bg-slate-950/78 dark:shadow-none dark:ring-white/10">
                 <div className="flex flex-wrap items-center gap-2 mb-3">
                   <Badge tone="emerald">Python</Badge>
                   <Badge tone="slate">Data Visualization</Badge>
@@ -1306,7 +1297,7 @@ function ProjectCard({ proj, onOpen }) {
         "rounded-lg bg-white/90 p-6 shadow-sm shadow-slate-200/60 ring-1 ring-slate-200/80 backdrop-blur",
         "hover:-translate-y-[1px] hover:shadow-lg hover:shadow-slate-200/70 transition",
         "focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500",
-        "dark:bg-slate-900/95 dark:shadow-none dark:ring-white/10"
+        "dark:bg-slate-950/78 dark:shadow-none dark:ring-white/10"
       )}
       aria-haspopup="dialog"
     >
@@ -1398,7 +1389,7 @@ function ExperiencePage() {
 
   return (
     <motion.div {...page}>
-      <Container className="px-6 lg:px-12 py-12 text-white">
+      <Container className="px-6 lg:px-12 py-12">
         <motion.div {...fadeInUp}>
           <SectionHeading
             icon={SparklesIcon}
@@ -1469,13 +1460,13 @@ function SurveyPage() {
 
   return (
     <motion.div {...page}>
-      <Container className="px-6 lg:px-12 py-12 text-white">
+      <Container className="px-6 lg:px-12 py-12">
         <motion.div {...fadeInUp}>
           <section
             className={cx(
               "rounded-lg p-8 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80",
               "bg-white/88 backdrop-blur",
-              "dark:bg-slate-900/95 dark:shadow-none dark:ring-white/10"
+              "dark:bg-slate-950/72 dark:shadow-none dark:ring-white/10"
             )}
           >
             <SectionHeading
@@ -1561,13 +1552,13 @@ function ContactPage() {
 
   return (
     <motion.div {...page}>
-      <Container className="px-6 lg:px-12 py-12 text-white">
+      <Container className="px-6 lg:px-12 py-12">
         <motion.div {...fadeInUp}>
           <section
             className={cx(
               "rounded-lg p-8 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80",
               "bg-white/88 backdrop-blur",
-              "dark:bg-slate-900/95 dark:shadow-none dark:ring-white/10"
+              "dark:bg-slate-950/72 dark:shadow-none dark:ring-white/10"
             )}
           >
             {/* The Grid now starts at the very top of the section */}
@@ -1672,7 +1663,7 @@ function NotFoundPage() {
   return (
     <motion.div {...page}>
       <Container className="px-6 lg:px-12 py-16">
-        <div className="rounded-lg bg-white/90 p-8 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80 backdrop-blur dark:bg-slate-900/95 dark:shadow-none dark:ring-white/10">
+        <div className="rounded-lg bg-white/90 p-8 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80 backdrop-blur dark:bg-slate-950/78 dark:shadow-none dark:ring-white/10">
           <h1 className="text-3xl font-extrabold">Page not found</h1>
           <p className="mt-3 text-slate-700 dark:text-slate-200">
             That route doesn't exist. Use the menu to navigate.
