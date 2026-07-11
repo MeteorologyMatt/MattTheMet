@@ -719,12 +719,17 @@ function SiteLayout({ children }) {
 
   useOnEscape(() => setMobileOpen(false), mobileOpen);
 
-  useEffect(() => {
+ useEffect(() => {
+  if (isDark) {
     document.documentElement.classList.add("dark");
     document.documentElement.style.colorScheme = "dark";
-  }, []);
+  } else {
+    document.documentElement.classList.remove("dark");
+    document.documentElement.style.colorScheme = "light";
+  }
 
-  const isDark = false;
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+}, [isDark]);
 
   return (
     <div
@@ -835,7 +840,12 @@ function SiteLayout({ children }) {
                   <img src={`${import.meta.env.BASE_URL}LinkedIn_logo_initials.png`} alt="LinkedIn" className="h-5 w-5" />
                 </IconButton>
               </div>
-
+<IconButton
+  label="Toggle theme"
+  onClick={() => setIsDark(!isDark)}
+>
+  {isDark ? "☀️" : "🌙"}
+</IconButton>
               <div className="md:hidden">
                 <IconButton label="Open menu" onClick={() => setMobileOpen(true)}>
                   <Bars3Icon className="h-6 w-6 text-slate-800 dark:text-slate-100" />
@@ -926,7 +936,14 @@ function HomePage() {
           aria-hidden="true"
           className="absolute inset-0 -z-20 h-full w-full object-cover opacity-45"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950 via-slate-950/82 to-slate-900/50" />
+        <div
+  className="absolute inset-0 -z-10"
+  style={{
+    background: isDark
+      ? "linear-gradient(to right, rgba(2,6,23,.92), rgba(2,6,23,.82), rgba(15,23,42,.60))"
+      : "linear-gradient(to right, rgba(255,255,255,.93), rgba(255,255,255,.85), rgba(248,250,252,.60))",
+  }}
+/>
         <Container className="relative px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
           <motion.div
@@ -942,13 +959,25 @@ function HomePage() {
               <Badge tone="slate">Weather Communication</Badge>
             </div>
 
-            <h1 className="mt-5 text-4xl sm:text-5xl font-extrabold leading-tight text-white">
+            <h1
+  className={cx(
+    "mt-5 text-4xl sm:text-5xl font-extrabold leading-tight",
+    isDark ? "text-white" : "text-slate-900"
+  )}
+>
               <span>
                 Hello, I'm {profile.name}.
               </span>
             </h1>
 
-            <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-100/90">
+            <p
+  className={cx(
+    "mt-5 max-w-3xl text-lg leading-relaxed",
+    isDark
+      ? "text-slate-100/90"
+      : "text-slate-700"
+  )}
+>
               I'm a first-year master's student studying meteorology at Mississippi State University, focusing on synoptic meteorology, weather communication, and AI/ML modeling techniques. I love using research to help people prepare for
               severe weather and the ever-evolving state of the atmosphere.
             </p>
@@ -978,7 +1007,14 @@ function HomePage() {
               </OutlineLink>
             </div>
 
-            <div className="mt-9 flex flex-wrap items-center gap-3 text-sm text-slate-100/85">
+            <div
+  className={cx(
+    "mt-9 flex flex-wrap items-center gap-3 text-sm",
+    isDark
+      ? "text-slate-100/85"
+      : "text-slate-700"
+  )}
+>
               <span className="inline-flex items-center gap-2">
                 <MapPinIcon className="h-4 w-4" />
                 {profile.location}
