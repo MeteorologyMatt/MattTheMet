@@ -1001,24 +1001,24 @@ function SiteLayout({ children }) {
               </p>
             </div>
 
-            <div className="flex flex-col items-start gap-4 sm:items-end">
-              <div className="flex flex-wrap gap-3">
-                <NavLink to="/" className="text-sm font-semibold text-slate-700 hover:text-sky-700 dark:text-slate-200 dark:hover:text-sky-300">
-                  Home
-                </NavLink>
-                <NavLink to="/research" className="text-sm font-semibold text-slate-700 hover:text-sky-700 dark:text-slate-200 dark:hover:text-sky-300">
-                  Research
-                </NavLink>
-                <NavLink to="/experience" className="text-sm font-semibold text-slate-700 hover:text-sky-700 dark:text-slate-200 dark:hover:text-sky-300">
-                  Experience
-                </NavLink>
-                <NavLink to="/contact" className="text-sm font-semibold text-slate-700 hover:text-sky-700 dark:text-slate-200 dark:hover:text-sky-300">
-                  Contact
-                </NavLink>
-              </div>
-
-              <BottomThemeToggle theme={theme} onToggle={toggleTheme} />
+            <div className="flex flex-wrap gap-3">
+              <NavLink to="/" className="text-sm font-semibold text-slate-700 hover:text-sky-700 dark:text-slate-200 dark:hover:text-sky-300">
+                Home
+              </NavLink>
+              <NavLink to="/research" className="text-sm font-semibold text-slate-700 hover:text-sky-700 dark:text-slate-200 dark:hover:text-sky-300">
+                Research
+              </NavLink>
+              <NavLink to="/experience" className="text-sm font-semibold text-slate-700 hover:text-sky-700 dark:text-slate-200 dark:hover:text-sky-300">
+                Experience
+              </NavLink>
+              <NavLink to="/contact" className="text-sm font-semibold text-slate-700 hover:text-sky-700 dark:text-slate-200 dark:hover:text-sky-300">
+                Contact
+              </NavLink>
             </div>
+          </div>
+
+          <div className="mt-8 flex justify-center border-t border-slate-200/70 pt-6 dark:border-white/10">
+            <BottomThemeToggle theme={theme} onToggle={toggleTheme} />
           </div>
         </Container>
       </footer>
@@ -1158,7 +1158,7 @@ function HomePage() {
       </section>
 
       {/* ABOUT (home-only section, no hash links) */}
-      <Container className="px-6 lg:px-12">
+      <Container className="px-6 pt-10 lg:px-12 md:pt-14">
         <motion.div {...fadeInUp}>
           <section
             id="home-about"
