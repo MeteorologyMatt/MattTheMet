@@ -819,7 +819,7 @@ function SiteLayout({ children }) {
   return (
     <div
       className={cx(
-        "relative min-h-screen overflow-hidden transition-colors duration-300",
+        "relative flex min-h-screen flex-col overflow-hidden transition-colors duration-300",
         "bg-slate-50 text-slate-900",
         "dark:bg-slate-950 dark:text-slate-50"
       )}
@@ -854,7 +854,7 @@ function SiteLayout({ children }) {
       />
 
       {/* Top bar / nav */}
-      <header className="sticky top-0 z-40 border-b border-slate-200/75 bg-white/86 shadow-sm shadow-slate-950/[0.03] backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/82">
+      <header className="sticky top-0 z-40 shrink-0 border-b border-slate-200/75 bg-white/86 shadow-sm shadow-slate-950/[0.03] backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/82">
         <Container className="px-6 lg:px-12">
           <div className="flex items-center justify-between py-4">
             {/* Brand */}
@@ -937,12 +937,12 @@ function SiteLayout({ children }) {
       </header>
 
       {/* Main content */}
-      <main id="main" className="relative z-10 outline-none">
+      <main id="main" className="relative z-10 flex-1 outline-none">
         {children}
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 border-t border-slate-200/75 bg-white/70 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/70">
+      <footer className="relative z-10 shrink-0 border-t border-slate-200/75 bg-white/70 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/70">
         <Container className="px-6 lg:px-12 py-10">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
@@ -1480,7 +1480,7 @@ function ExperiencePage() {
 
   return (
     <motion.div {...page}>
-      <Container className="px-6 lg:px-12 py-12">
+      <Container className="px-6 lg:px-12 py-12 min-h-[calc(100vh-13rem)]">
         <motion.div {...fadeInUp}>
           <SectionHeading
             icon={SparklesIcon}
