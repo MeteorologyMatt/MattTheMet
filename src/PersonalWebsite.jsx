@@ -11,6 +11,8 @@ import {
   MapPinIcon,
   CalendarIcon,
   SparklesIcon,
+  SunIcon,
+  MoonIcon,
 } from "@heroicons/react/24/outline";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Routes, Route, NavLink, Link, useLocation } from "react-router-dom";
@@ -131,6 +133,37 @@ function useFocusTrap(isOpen, containerRef, { initialFocusSelector } = {}) {
       if (prevActive && typeof prevActive.focus === "function") prevActive.focus();
     };
   }, [isOpen, containerRef, initialFocusSelector]);
+}
+
+function useThemeMode() {
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === "undefined") return "dark";
+
+    const saved = window.localStorage.getItem("portfolio-theme");
+    if (saved === "light" || saved === "dark") return saved;
+
+    return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const isDark = theme === "dark";
+
+    root.classList.toggle("dark", isDark);
+    root.dataset.theme = theme;
+    root.style.colorScheme = theme;
+    window.localStorage.setItem("portfolio-theme", theme);
+  }, [theme]);
+
+  const toggleTheme = useCallback(() => {
+    setTheme((current) => (current === "dark" ? "light" : "dark"));
+  }, []);
+
+  return {
+    theme,
+    isDark: theme === "dark",
+    toggleTheme,
+  };
 }
 
 /* -------------------------------------------------------------------------- */
@@ -427,6 +460,122 @@ function Callout({ icon: Icon, title, children, tone = "sky" }) {
   );
 }
 
+function BottomThemeToggle({ theme, onToggle }) {
+  const isDark = theme === "dark";
+  const Icon = isDark ? SunIcon : MoonIcon;
+
+  return (
+    <button
+      type="button"
+      onClick={onToggle}
+      className={cx(
+        "inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition",
+        "border border-slate-300 bg-white/85 text-slate-800 shadow-sm shadow-slate-200/50",
+        "hover:border-sky-300 hover:bg-sky-50 hover:text-sky-800",
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500",
+        "dark:border-white/10 dark:bg-slate-900/80 dark:text-slate-100 dark:shadow-none",
+        "dark:hover:border-sky-600 dark:hover:bg-sky-950/40 dark:hover:text-sky-200"
+      )}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+    >
+      <Icon className="h-5 w-5" />
+      {isDark ? "Light mode" : "Dark mode"}
+    </button>
+  );
+}
+
+function WeatherHeroVisual() {
+  return (
+    <svg
+      aria-hidden="true"
+      className="absolute inset-0 -z-20 h-full w-full"
+      viewBox="0 0 1600 900"
+      preserveAspectRatio="xMidYMid slice"
+    >
+      <rect className="fill-stone-100 dark:fill-slate-950" width="1600" height="900" />
+      <path
+        className="fill-amber-200/55 dark:fill-amber-500/20"
+        d="M916 0h684v900H724c78-119 124-249 138-390C878 344 864 184 916 0Z"
+      />
+      <path
+        className="fill-slate-500/35 dark:fill-slate-700/65"
+        d="M0 0h1600v362c-137-68-270-85-399-51-93 25-170 73-256 62-109-13-177-111-289-126-138-18-235 95-370 75C177 306 96 217 0 207Z"
+      />
+      <path
+        className="fill-cyan-700/18 dark:fill-cyan-400/12"
+        d="M1600 128v394c-99-33-181-23-248 29-85 66-169 71-252 16-81-54-165-61-251-21-100 47-187 32-261-43-74-76-159-104-255-83-118 26-229 2-333-71V166c104 64 210 91 319 82 106-8 208-50 307-124 107-80 212-102 316-64 84 31 160 88 250 91 120 3 240-64 408-23Z"
+      />
+      <path
+        className="fill-emerald-700/28 dark:fill-emerald-500/16"
+        d="M0 656c120-40 234-48 343-24 118 26 224 83 349 77 141-7 251-93 392-105 165-14 321 72 516 52v244H0Z"
+      />
+
+      {[
+        "M156 0v900",
+        "M347 0v900",
+        "M538 0v900",
+        "M729 0v900",
+        "M920 0v900",
+        "M1111 0v900",
+        "M1302 0v900",
+        "M1493 0v900",
+        "M0 140h1600",
+        "M0 284h1600",
+        "M0 428h1600",
+        "M0 572h1600",
+        "M0 716h1600",
+      ].map((path) => (
+        <path
+          key={path}
+          className="fill-none stroke-slate-900/10 dark:stroke-white/10"
+          d={path}
+          strokeWidth="1"
+        />
+      ))}
+
+      <path
+        className="fill-emerald-700/24 dark:fill-emerald-400/17"
+        d="M1168 497c55-48 132-48 189 0 60 52 78 137 41 204-43 77-139 106-218 65-79-40-110-137-71-217 14-27 33-45 59-52Z"
+      />
+      <path
+        className="fill-amber-600/22 dark:fill-amber-300/16"
+        d="M1226 537c33-28 78-25 111 7 36 36 41 94 12 136-35 51-108 60-154 19-43-38-48-106-11-148 12-7 26-12 42-14Z"
+      />
+      <path
+        className="fill-emerald-700/18 dark:fill-emerald-400/12"
+        d="M1006 348c42-35 101-33 143 7 44 43 48 112 10 160-43 54-124 59-174 10-48-47-48-126 0-173 6-2 13-3 21-4Z"
+      />
+
+      {[
+        "M694 151c130 63 223 70 278 19 64-59 145-62 242-9 88 48 190 44 306-13",
+        "M632 246c131 64 235 68 312 13 77-55 161-48 254 21 91 68 203 72 336 12",
+        "M666 346c105 38 190 36 254-6 84-56 169-49 255 22 79 65 191 73 337 24",
+      ].map((path) => (
+        <path
+          key={path}
+          className="fill-none stroke-cyan-700/45 dark:stroke-cyan-300/42"
+          d={path}
+          strokeLinecap="round"
+          strokeWidth="2.5"
+        />
+      ))}
+
+      {[
+        "M741 471c77-31 149-25 216 17 68 42 136 36 206-17 65-50 139-58 221-24",
+        "M769 569c79-28 153-21 221 21 69 43 137 39 204-11 76-57 160-66 251-27",
+      ].map((path) => (
+        <path
+          key={path}
+          className="fill-none stroke-amber-700/38 dark:stroke-amber-300/34"
+          d={path}
+          strokeLinecap="round"
+          strokeWidth="1.9"
+        />
+      ))}
+    </svg>
+  );
+}
+
 /* -------------------------------------------------------------------------- */
 /* Modal (Experience details)                                                  */
 /* -------------------------------------------------------------------------- */
@@ -711,15 +860,9 @@ function SiteLayout({ children }) {
   const navItems = useNavItems();
 
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { theme, isDark, toggleTheme } = useThemeMode();
 
   useOnEscape(() => setMobileOpen(false), mobileOpen);
-
-  useEffect(() => {
-    document.documentElement.classList.add("dark");
-    document.documentElement.style.colorScheme = "dark";
-  }, []);
-
-  const isDark = false;
 
   return (
     <div
@@ -858,19 +1001,23 @@ function SiteLayout({ children }) {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-3">
-              <NavLink to="/" className="text-sm font-semibold text-slate-700 hover:text-sky-700 dark:text-slate-200 dark:hover:text-sky-300">
-                Home
-              </NavLink>
-              <NavLink to="/research" className="text-sm font-semibold text-slate-700 hover:text-sky-700 dark:text-slate-200 dark:hover:text-sky-300">
-                Research
-              </NavLink>
-              <NavLink to="/experience" className="text-sm font-semibold text-slate-700 hover:text-sky-700 dark:text-slate-200 dark:hover:text-sky-300">
-                Experience
-              </NavLink>
-              <NavLink to="/contact" className="text-sm font-semibold text-slate-700 hover:text-sky-700 dark:text-slate-200 dark:hover:text-sky-300">
-                Contact
-              </NavLink>
+            <div className="flex flex-col items-start gap-4 sm:items-end">
+              <div className="flex flex-wrap gap-3">
+                <NavLink to="/" className="text-sm font-semibold text-slate-700 hover:text-sky-700 dark:text-slate-200 dark:hover:text-sky-300">
+                  Home
+                </NavLink>
+                <NavLink to="/research" className="text-sm font-semibold text-slate-700 hover:text-sky-700 dark:text-slate-200 dark:hover:text-sky-300">
+                  Research
+                </NavLink>
+                <NavLink to="/experience" className="text-sm font-semibold text-slate-700 hover:text-sky-700 dark:text-slate-200 dark:hover:text-sky-300">
+                  Experience
+                </NavLink>
+                <NavLink to="/contact" className="text-sm font-semibold text-slate-700 hover:text-sky-700 dark:text-slate-200 dark:hover:text-sky-300">
+                  Contact
+                </NavLink>
+              </div>
+
+              <BottomThemeToggle theme={theme} onToggle={toggleTheme} />
             </div>
           </div>
         </Container>
@@ -914,14 +1061,9 @@ function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJson(jsonLd) }} />
 
       {/* HERO */}
-      <section className="relative isolate overflow-hidden bg-slate-950 py-16 md:py-24">
-        <img
-          src={profile.heroImage}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 -z-20 h-full w-full object-cover opacity-45"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950 via-slate-950/82 to-slate-900/50" />
+      <section className="relative isolate overflow-hidden border-b border-slate-200/70 bg-stone-50 py-16 md:py-24 dark:border-white/10 dark:bg-slate-950">
+        <WeatherHeroVisual />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-stone-50 via-stone-50/90 to-stone-50/20 dark:from-slate-950 dark:via-slate-950/86 dark:to-slate-950/20" />
         <Container className="relative px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
           <motion.div
@@ -937,13 +1079,13 @@ function HomePage() {
               <Badge tone="slate">Weather Communication</Badge>
             </div>
 
-            <h1 className="mt-5 text-4xl sm:text-5xl font-extrabold leading-tight text-white">
+            <h1 className="mt-5 max-w-4xl text-5xl font-extrabold leading-none text-slate-950 sm:text-6xl dark:text-white">
               <span>
                 Hello, I'm {profile.name}.
               </span>
             </h1>
 
-            <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-100/90">
+            <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-700 dark:text-slate-100/90">
               I'm a first-year master's student studying meteorology at Mississippi State University, focusing on synoptic meteorology, weather communication, and AI/ML modeling techniques. I love using research to help people prepare for
               severe weather and the ever-evolving state of the atmosphere.
             </p>
@@ -954,10 +1096,10 @@ function HomePage() {
                 download
                 className={cx(
                   "inline-flex items-center justify-center gap-2",
-                  "px-5 py-3 rounded-lg font-semibold text-slate-950 shadow-lg shadow-slate-950/20",
-                  "bg-white hover:bg-sky-50",
+                  "px-5 py-3 rounded-lg font-semibold text-white shadow-lg shadow-sky-950/15",
+                  "bg-sky-800 hover:bg-sky-900 dark:bg-sky-300 dark:text-slate-950 dark:hover:bg-sky-200",
                   "hover:-translate-y-[1px] transition",
-                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
                 )}
               >
                 <ArrowDownTrayIcon className="h-5 w-5" />
@@ -966,22 +1108,22 @@ function HomePage() {
 
               <OutlineLink
                 to="/research"
-                className="border-white/45 bg-white/10 text-white shadow-none hover:border-white hover:bg-white hover:text-slate-950 dark:border-white/45 dark:bg-white/10 dark:text-white dark:hover:border-white dark:hover:bg-white dark:hover:text-slate-950"
+                className="border-slate-300 bg-white/75 text-slate-900 shadow-sm hover:border-sky-300 hover:bg-sky-50 hover:text-sky-900 dark:border-white/45 dark:bg-white/10 dark:text-white dark:hover:border-white dark:hover:bg-white dark:hover:text-slate-950"
               >
                 <DocumentTextIcon className="h-5 w-5" />
                 View Research
               </OutlineLink>
             </div>
 
-            <div className="mt-9 flex flex-wrap items-center gap-3 text-sm text-slate-100/85">
+            <div className="mt-9 flex flex-wrap items-center gap-3 text-sm text-slate-700 dark:text-slate-100/85">
               <span className="inline-flex items-center gap-2">
                 <MapPinIcon className="h-4 w-4" />
                 {profile.location}
               </span>
-              <span className="h-1 w-1 rounded-full bg-slate-100/60" />
+              <span className="h-1 w-1 rounded-full bg-slate-400 dark:bg-slate-100/60" />
               <a
                 href={`mailto:${profile.email}`}
-                className="underline underline-offset-4 decoration-sky-200/70 hover:decoration-white"
+                className="underline underline-offset-4 decoration-sky-500/60 hover:decoration-sky-700 dark:decoration-sky-200/70 dark:hover:decoration-white"
               >
                 {profile.email}
               </a>
@@ -999,7 +1141,8 @@ function HomePage() {
               className={cx(
                 "relative w-56 h-56 sm:w-64 sm:h-64",
                 "overflow-hidden rounded-lg p-2",
-                "bg-white/12 shadow-2xl shadow-slate-950/30 ring-1 ring-white/25 backdrop-blur"
+                "bg-white/70 shadow-2xl shadow-slate-950/15 ring-1 ring-slate-900/10 backdrop-blur",
+                "dark:bg-white/12 dark:shadow-slate-950/30 dark:ring-white/25"
               )}
             >
               <img
