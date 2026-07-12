@@ -1746,7 +1746,7 @@ function ContactPage() {
 
           <figure
   className={cx(
-    "mt-8 mx-auto max-w-md overflow-hidden rounded-lg shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80",
+    "mt-8 mx-auto max-w-lg overflow-hidden rounded-lg shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80",
     "bg-white/88 backdrop-blur",
     "dark:bg-slate-950/72 dark:shadow-none dark:ring-white/10"
   )}
