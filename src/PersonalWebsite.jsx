@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState, useCallback } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   EnvelopeIcon,
   AcademicCapIcon,
@@ -11,8 +11,6 @@ import {
   MapPinIcon,
   CalendarIcon,
   SparklesIcon,
-  SunIcon,
-  MoonIcon,
 } from "@heroicons/react/24/outline";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Routes, Route, NavLink, Link, useLocation } from "react-router-dom";
@@ -133,37 +131,6 @@ function useFocusTrap(isOpen, containerRef, { initialFocusSelector } = {}) {
       if (prevActive && typeof prevActive.focus === "function") prevActive.focus();
     };
   }, [isOpen, containerRef, initialFocusSelector]);
-}
-
-function useThemeMode() {
-  const [theme, setTheme] = useState(() => {
-    if (typeof window === "undefined") return "dark";
-
-    const saved = window.localStorage.getItem("portfolio-theme");
-    if (saved === "light" || saved === "dark") return saved;
-
-    return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  });
-
-  useEffect(() => {
-    const root = document.documentElement;
-    const isDark = theme === "dark";
-
-    root.classList.toggle("dark", isDark);
-    root.dataset.theme = theme;
-    root.style.colorScheme = theme;
-    window.localStorage.setItem("portfolio-theme", theme);
-  }, [theme]);
-
-  const toggleTheme = useCallback(() => {
-    setTheme((current) => (current === "dark" ? "light" : "dark"));
-  }, []);
-
-  return {
-    theme,
-    isDark: theme === "dark",
-    toggleTheme,
-  };
 }
 
 /* -------------------------------------------------------------------------- */
@@ -457,30 +424,6 @@ function Callout({ icon: Icon, title, children, tone = "sky" }) {
         </div>
       </div>
     </div>
-  );
-}
-
-function BottomThemeToggle({ theme, onToggle }) {
-  const isDark = theme === "dark";
-  const Icon = isDark ? SunIcon : MoonIcon;
-
-  return (
-    <button
-      type="button"
-      onClick={onToggle}
-      className={cx(
-        "inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition",
-        "border border-slate-300 bg-white/85 text-slate-800 shadow-sm shadow-slate-200/50",
-        "hover:border-sky-300 hover:bg-sky-50 hover:text-sky-800",
-        "focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500",
-        "dark:border-white/10 dark:bg-slate-900/80 dark:text-slate-100 dark:shadow-none",
-        "dark:hover:border-sky-600 dark:hover:bg-sky-950/40 dark:hover:text-sky-200"
-      )}
-      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-    >
-      <Icon className="h-5 w-5" />
-      {isDark ? "Light mode" : "Dark mode"}
-    </button>
   );
 }
 
@@ -833,6 +776,7 @@ function useProfile() {
       resume: `${BASE}Lentz_Matthew_Resume_2026.pdf`,
       portrait: `${BASE}matthew.jpg`,
       heroImage: `${BASE}weather-hero.jpg`,
+      locationImage: `${BASE}MSstate%20location.png`,
       topographyImage: `${BASE}topography-bg.jpg`,
     }),
     [BASE]
@@ -860,9 +804,17 @@ function SiteLayout({ children }) {
   const navItems = useNavItems();
 
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { theme, isDark, toggleTheme } = useThemeMode();
 
   useOnEscape(() => setMobileOpen(false), mobileOpen);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.add("dark");
+    root.dataset.theme = "dark";
+    root.style.colorScheme = "dark";
+  }, []);
+
+  const isDark = true;
 
   return (
     <div
@@ -1015,10 +967,6 @@ function SiteLayout({ children }) {
                 Contact
               </NavLink>
             </div>
-          </div>
-
-          <div className="mt-8 flex justify-center border-t border-slate-200/70 pt-6 dark:border-white/10">
-            <BottomThemeToggle theme={theme} onToggle={toggleTheme} />
           </div>
         </Container>
       </footer>
@@ -1795,6 +1743,21 @@ function ContactPage() {
 
             </div>
           </section>
+
+          <figure
+            className={cx(
+              "mt-8 overflow-hidden rounded-lg shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80",
+              "bg-white/88 backdrop-blur",
+              "dark:bg-slate-950/72 dark:shadow-none dark:ring-white/10"
+            )}
+          >
+            <img
+              src={profile.locationImage}
+              alt="Mississippi State University location map"
+              className="h-auto w-full object-cover"
+              loading="lazy"
+            />
+          </figure>
         </motion.div>
       </Container>
     </motion.div>
