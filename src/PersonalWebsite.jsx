@@ -1745,19 +1745,19 @@ function ContactPage() {
           </section>
 
           <figure
-            className={cx(
-              "mt-8 overflow-hidden rounded-lg shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80",
-              "bg-white/88 backdrop-blur",
-              "dark:bg-slate-950/72 dark:shadow-none dark:ring-white/10"
-            )}
-          >
-            <img
-              src={profile.locationImage}
-              alt="Mississippi State University location map"
-              className="h-auto w-full object-cover"
-              loading="lazy"
-            />
-          </figure>
+  className={cx(
+    "mt-8 mx-auto max-w-sm overflow-hidden rounded-lg shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80",
+    "bg-white/88 backdrop-blur",
+    "dark:bg-slate-950/72 dark:shadow-none dark:ring-white/10"
+  )}
+>
+  <img
+    src={profile.locationImage}
+    alt="Mississippi State University location map"
+    className="h-auto w-full object-cover"
+    loading="lazy"
+  />
+</figure>
         </motion.div>
       </Container>
     </motion.div>
