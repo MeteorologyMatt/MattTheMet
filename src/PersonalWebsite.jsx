@@ -1473,76 +1473,108 @@ function ExperiencePage() {
     []
   );
 
-  const activeProject = useMemo(
-    () => projects.find((p) => p.id === openProjectId) || null,
-    [projects, openProjectId]
-  );
+const activeProject = useMemo(
+  () => projects.find((p) => p.id === openProjectId) || null,
+  [projects, openProjectId]
+);
 
-  useOnEscape(() => setOpenProjectId(null), openProjectId !== null);
+useOnEscape(() => setOpenProjectId(null), openProjectId !== null);
 
-  return (
-    <motion.div {...page}>
-      <Container className="px-6 lg:px-12 py-12 min-h-[calc(100vh-13rem)]">
-        <motion.div {...fadeInUp}>
-          <SectionHeading
-            icon={SparklesIcon}
-            title="Past Research and Experiences"
-            subtitle="Selected experiences across research, operations, and communication."
-          />
+return (
+  <motion.div {...page}>
+    <Container className="px-6 lg:px-12 py-12 min-h-[calc(100vh-13rem)]">
+      <motion.div {...fadeInUp}>
+        <SectionHeading
+          icon={SparklesIcon}
+          title="Past Research and Experiences"
+          subtitle="Selected experiences across research, operations, and communication."
+        />
 
-          <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}>
-            <motion.div variants={item} className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {projects.map((proj) => (
-                <ProjectCard key={proj.id} proj={proj} onOpen={setOpenProjectId} />
-              ))}
-            </motion.div>
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          <motion.div
+            variants={item}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          >
+            {projects.map((proj) => (
+              <ProjectCard
+                key={proj.id}
+                proj={proj}
+                onOpen={setOpenProjectId}
+              />
+            ))}
           </motion.div>
-
-          <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
- <div className="mt-10">
-  <Callout
-    title={<span className="block w-full text-center">Research Philosophy: Bridging the Atmosphere and Society</span>}
-    tone="slate"
-  >
-    My research and interests have always been interdisciplinary, blending my passions in meteorology, sociology, and environmental science. Whether studying severe weather risk perception among international students, environmental literacy within multilingual communities, or atmospheric processes associated with winter storms, I have been interested in understanding both the physical mechanisms of weather and the ways people experience and respond to it.
-    <br /><br />
-    As artificial intelligence and machine learning continue to transform atmospheric science and our daily lives (whether we like it or not), new opportunities exist to improve weather prediction and decision support. However, technological advances alone are not enough. The value of any forecast ultimately depends on how it is communicated, interpreted, and acted upon by the people it is intended to serve. By integrating atmospheric science, computational methods, and social science research, I hope to contribute to a future where scientific innovation helps communities make more informed decisions and stay safer during high-impact weather events.
-  </Callout>
-</div>
         </motion.div>
-      </Container>
 
-      <Modal
-        open={!!activeProject}
-        title={activeProject?.title}
-        subtitle={activeProject?.subtitle}
-        onClose={() => setOpenProjectId(null)}
-      >
-        {activeProject ? (
-          <div>
-            <div className="flex flex-wrap gap-2">
-              {activeProject.tags?.map((t) => (
-                <Badge key={t} tone="sky">
-                  {t}
-                </Badge>
-              ))}
-            </div>
+        <div className="mt-10">
+          <Callout
+            title={
+              <span className="block w-full text-center">
+                Research Philosophy: Bridging the Atmosphere and Society
+              </span>
+            }
+            tone="slate"
+          >
+            My research and interests have always been interdisciplinary,
+            blending my passions in meteorology, sociology, and environmental
+            science. Whether studying severe weather risk perception among
+            international students, environmental literacy within multilingual
+            communities, or atmospheric processes associated with winter
+            storms, I have been interested in understanding both the physical
+            mechanisms of weather and the ways people experience and respond to
+            it.
+            <br />
+            <br />
+            As artificial intelligence and machine learning continue to
+            transform atmospheric science and our daily lives (whether we like
+            it or not), new opportunities exist to improve weather prediction
+            and decision support. However, technological advances alone are not
+            enough. The value of any forecast ultimately depends on how it is
+            communicated, interpreted, and acted upon by the people it is
+            intended to serve. By integrating atmospheric science,
+            computational methods, and social science research, I hope to
+            contribute to a future where scientific innovation helps
+            communities make more informed decisions and stay safer during
+            high-impact weather events.
+          </Callout>
+        </div>
+      </motion.div>
+    </Container>
 
-            <ul className="mt-5 space-y-3 text-slate-700 dark:text-slate-200">
-              {activeProject.details.map((d, i) => (
-                <li key={i} className="flex gap-3">
-                  <span className="mt-[9px] h-1.5 w-1.5 rounded-full bg-sky-500 shrink-0" />
-                  <span className="leading-relaxed">{d}</span>
-                </li>
-              ))}
-            </ul>
+    <Modal
+      open={!!activeProject}
+      title={activeProject?.title}
+      subtitle={activeProject?.subtitle}
+      onClose={() => setOpenProjectId(null)}
+    >
+      {activeProject ? (
+        <div>
+          <div className="flex flex-wrap gap-2">
+            {activeProject.tags?.map((t) => (
+              <Badge key={t} tone="sky">
+                {t}
+              </Badge>
+            ))}
           </div>
-        ) : null}
-      </Modal>
-    </motion.div>
-  );
-}
 
+          <ul className="mt-5 space-y-3 text-slate-700 dark:text-slate-200">
+            {activeProject.details.map((d, i) => (
+              <li key={i} className="flex gap-3">
+                <span className="mt-[9px] h-1.5 w-1.5 rounded-full bg-sky-500 shrink-0" />
+                <span className="leading-relaxed">{d}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+    </Modal>
+  </motion.div>
+);
+}
 function SurveyPage() {
   const { page, fadeInUp } = useMotionPresets();
 
