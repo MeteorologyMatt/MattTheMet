@@ -1499,19 +1499,14 @@ function ExperiencePage() {
           </motion.div>
 
           <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
-  {/* Section 1: How I work */}
-  <Callout title={<span className="block w-full text-center">Methodological Approach</span>} tone="slate">
-    I structure my work around reproducible research frameworks and rigorous documentation to ensure data integrity. My output strategy is communication-centric, transforming technical analysis into high-impact dashboards, cartographic products, and stakeholder-ready briefs that prioritize clarity and utility.
-  </Callout>
-
-  {/* Section 2: Tools I use */}
-  <Callout title={<span className="block w-full text-center">Technical Proficiency</span>} tone="slate">
-    I leverage a comprehensive technical stack anchored in Python for automated analysis and ArcGIS Pro for advanced spatial workflows. Additionally, I utilize modern web development technologies to craft interactive outreach platforms, ensuring scientific findings are accessible and engaging.
-  </Callout>
-
-  {/* Section 3: What I want next */}
-  <Callout title={<span className="block w-full text-center">Career Objectives</span>} tone="slate">
-    I am seeking professional opportunities at the nexus of climate resilience, wildfire dynamics, and geospatial science. My goal is to apply integrated GIS workflows and strategic science communication to enhance community readiness and optimize response protocols for critical environmental challenges.
+ <div className="mt-10">
+  <Callout
+    title={<span className="block w-full text-center">Research Philosophy: Bridging the Atmosphere and Society</span>}
+    tone="slate"
+  >
+    My research and interests have always been interdisciplinary, blending my passions in meteorology, sociology, and environmental science. Whether studying severe weather risk perception among international students, environmental literacy within multilingual communities, or atmospheric processes associated with winter storms, I have been interested in understanding both the physical mechanisms of weather and the ways people experience and respond to it.
+    <br /><br />
+    As artificial intelligence and machine learning continue to transform atmospheric science and our daily lives (whether we like it or not), new opportunities exist to improve weather prediction and decision support. However, technological advances alone are not enough. The value of any forecast ultimately depends on how it is communicated, interpreted, and acted upon by the people it is intended to serve. By integrating atmospheric science, computational methods, and social science research, I hope to contribute to a future where scientific innovation helps communities make more informed decisions and stay safer during high-impact weather events.
   </Callout>
 </div>
         </motion.div>
