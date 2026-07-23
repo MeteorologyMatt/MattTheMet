@@ -1205,7 +1205,7 @@ function ResearchPage() {
               </p>
 
               <p className="mt-4 text-slate-700 dark:text-slate-200 leading-relaxed">
-                The goal is to surface actionable recommendations for MSU alerts, outreach, and culturally responsive
+                The goal of this research was to provide recommendations for MSU alerts, outreach, and culturally responsive
                 risk communication that reduces confusion and improves action.
               </p>
 
