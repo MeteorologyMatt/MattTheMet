@@ -1034,9 +1034,8 @@ function HomePage() {
             </h1>
 
             <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-700 dark:text-slate-100/90">
-              I'm a first-year master's student studying meteorology at Mississippi State University, focusing on synoptic meteorology, weather communication, and AI/ML modeling techniques. I love using research to help people prepare for
-              severe weather and the ever-evolving state of the atmosphere.
-            </p>
+  I'm a first-year master's student studying meteorology at Mississippi State University, focusing on synoptic meteorology, weather communication, and AI/ML modeling techniques. I love using research to help people prepare for severe weather and better understand the ever-evolving state of the atmosphere.
+</p>
 
             <div className="mt-7 flex flex-wrap gap-4">
               <a
@@ -1125,15 +1124,23 @@ function HomePage() {
             <p className="mx-auto max-w-3xl text-center text-lg leading-relaxed text-slate-700 dark:text-slate-200">
               <span className="font-semibold">4.0 GPA</span> | Shackouls Honors College | Mississippi State University
               <br />
-              Pursuing graduate research in synoptic meteorology and atmospheric dynamics, specifically investigating the mechanisms of jet stream superposition and its role in explosive cyclogenesis. I aim to integrate these technical insights into the Weather, Climate, and Society framework to refine risk communication strategies and improve institutional decision-making for communities during high-impact weather events.
+As a graduate research assistant, I seek to blend synoptic meteorology, atmospheric dynamics, and machine-learning techniques, investigating the mechanisms of the synoptic environment and patterns that result in Southern U.S. winter storms and produce a WRF/ML weather model. In addition to these technical research goals, it becomes ever more important to study the societal impacts of potential winter storms in the future. AI weather models will provide one piece of the puzzle, while social science research offers a means of understanding how forecasts are interpreted, communicated, and acted upon by the diverse populations they are intended to serve. Thus, throughout my career, I aim to pursue both lines of research, bridging advances in atmospheric science with a deeper understanding of their societal applications.
             </p>
 
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
             <InfoCard title="Education">
-              <div className="mb-4">-   B.S. in Geosciences (Professional Meteorology)</div>
-              <div className="mb-4">-   Minors: Math & Sociology</div>
-              <div>-   Mississippi State University (August 2022 - May 2026)</div>
-            </InfoCard>
+  <div className="mb-4">
+    <strong>Master of Science in Geosciences (Professional Meteorology)</strong><br />
+    Expected May 2028<br />
+    Mississippi State University | August 2026 – Present
+  </div>
+
+  <div>
+    <strong>Bachelor of Science in Geosciences (Professional Meteorology)</strong><br />
+    Minors: Mathematics and Sociology<br />
+    Mississippi State University | August 2022 – May 2026
+  </div>
+</InfoCard>
               <InfoCard title="Skills">
               <div className="mb-4">  -   Python</div>
               <div className="mb-4">  -   ArcGIS Pro</div>
@@ -1149,19 +1156,14 @@ function HomePage() {
               </InfoCard>
             </div>
 
-            <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <Callout title={<span className="block w-full text-center">Core Competencies</span>} tone="slate">
-               I work with large meteorological datasets using R and Python and study large-scale atmospheric dynamics, especially jet stream interactions and their impacts on winter weather. I also create visualizations and GIS products that help communicate complex weather information to diverse audiences.
-              </Callout>
-
-              <Callout title={<span className="block w-full text-center">Research Focus</span>} tone="slate">
-                My research portfolio centers on the intersection of synoptic-scale dynamics and societal impacts, investigating how extreme weather triggers influence public risk perception. I am dedicated to integrating the principles of weather, climate, and society into the study of high-impact events, with a specific focus on optimizing protective action and communication strategies for all people and communities.
-              </Callout>
-
-              <Callout title={<span className="block w-full text-center">Professional Interests</span>} tone="slate">
-                I am pursuing graduate-level research and professional collaborations focused on integrating synoptic meteorology, climate risk, and sociology. My objective is to develop equitable decision-support frameworks and science communication tools that translate rigorous meteorological modeling into improved public safety outcomes, ensuring advanced dynamical forecasts serve all effectively.
-              </Callout>
-            </div>
+            <div className="mt-10">
+  <Callout
+    title={<span className="block w-full text-center">Research Interests</span>}
+    tone="slate"
+  >
+    My research interests span synoptic meteorology, atmospheric dynamics, machine learning, and weather communication. I am particularly interested in understanding the atmospheric processes that contribute to Southern U.S. winter storms and applying computational methods to improve weather prediction. I am also interested in the human dimensions of weather and climate, including risk perception, hazard communication, and how diverse populations interpret and use forecast information.
+  </Callout>
+</div>
 
             <div className="mt-8 flex flex-wrap gap-3 justify-center">
               <OutlineLink to="/experience">See Experience</OutlineLink>
@@ -1184,7 +1186,7 @@ function ResearchPage() {
           <SectionHeading
             icon={DocumentTextIcon}
             title="Research"
-            subtitle="Honors thesis focus and current research direction."
+            subtitle="Undergraduate honors thesis and former research."
           />
 
           {/* Grid Layout: 2 Columns (50/50 split) for Research Cards Only */}
@@ -1197,8 +1199,8 @@ function ResearchPage() {
               </h3>
 
               <p className="mt-4 text-slate-700 dark:text-slate-200 leading-relaxed">
-                I'm investigating how international students at Mississippi State University perceive severe weather and
-                its risks. I'm focusing on how prior weather experience, language and cultural context, and warning
+                I investigated how international students at Mississippi State University perceive severe weather and
+                its risks. I also focused on how prior weather experience, language and cultural context, and warning
                 comprehension shape decision-making, plus which channels (sirens, WEA, social media) students trust.
               </p>
 
@@ -1245,17 +1247,17 @@ function ResearchPage() {
             {/* --- RIGHT COLUMN: SEMBRAR --- */}
             <div className="h-full flex flex-col rounded-lg bg-white/90 p-7 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200/80 backdrop-blur dark:bg-slate-950/78 dark:shadow-none dark:ring-white/10">
               <h3 className="text-xl font-bold text-slate-950 dark:text-white">
-                Current Role: SEMBRAR Mississippi & Florida
+                Former Role: SEMBRAR Mississippi & Florida
               </h3>
               
               <p className="mt-4 text-slate-700 dark:text-slate-200 leading-relaxed">
-                I am a student researcher for the SEMBRAR project, a multidisciplinary initiative fostering 
-                environmental literacy among multilingual learners. I analyze how synoptic-scale processes 
+                I was a former undergraduate student researcher for the SEMBRAR project, a multidisciplinary initiative fostering 
+                environmental literacy among multilingual learners. I analyzed how synoptic-scale processes 
                 translate into localized environmental risks.
               </p>
               
               <p className="mt-4 text-slate-700 dark:text-slate-200 leading-relaxed">
-                By applying weather, climate, and society principles, I develop ways to communicate 
+                By applying weather, climate, and society principles, I developed ways to communicate 
                 these complex weather and environmental phenomena to diverse communities, integrating place-based education.
               </p>
 
@@ -1363,7 +1365,7 @@ function ResearchPage() {
             </h2>
             
             <p className="text-slate-600 dark:text-slate-300 text-center max-w-lg">
-              I am always interested in connecting with peers and professionals working in synoptic meteorology, risk communication, or societal resilience.
+              I am always interested in connecting with peers and professionals working in synoptic meteorology, AI/ML weather modeling, or risk communication.
             </p>
 
             <PrimaryLink to="/contact" className="px-8 py-3">
